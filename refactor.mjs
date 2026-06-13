@@ -19,23 +19,17 @@ async function refactorPaths() {
         let content = await fs.readFile(file, 'utf8');
         let originalContent = content;
 
-        // Replace component paths
         for (const feat of FEATURES) {
-            // matches relative or absolute alias imports
-            const regex1 = new RegExp(`from\\s+['"]@/components/${feat}(/.*)?['"]`, 'g');
-            content = content.replace(regex1, `from '@/features/${feat}/components$1'`);
-            
-            const regex2 = new RegExp(`import\\s+['"]@/components/${feat}(/.*)?['"]`, 'g');
-            content = content.replace(regex2, `import '@/features/${feat}/components$1'`);
-            
-            // relative paths like '../../components/analysis'
-            const regex3 = new RegExp(`['"](\\.\\./)+components/${feat}(/.*)?['"]`, 'g');
-            content = content.replace(regex3, `'@/features/${feat}/components$2'`);
-        }
+            // dynamic imports: import('@/components/charts/...')
+            const regexDyn = new RegExp(`import\\(['"]@/components/${feat}(/.*)?['"]\\)`, 'g');
+            content = content.replace(regexDyn, `import('@/features/${feat}/components$1')`);
 
-        // Replace context paths
-        content = content.replace(/from\s+['"]@\/context\/([^'"]+)['"]/g, `from '@/features/plan/context/$1'`);
-        content = content.replace(/['"](\.\.\/)+context\/([^'"]+)['"]/g, `'@/features/plan/context/$2'`);
+            // relative dynamic imports: import('../../components/charts/...')
+            const regexDynRel = new RegExp(`import\\(['"](\\.\\./)+components/${feat}(/.*)?['"]\\)`, 'g');
+            content = content.replace(regexDynRel, `import('@/features/${feat}/components$2')`);
+            
+            // missed static imports without space? like `import'@/components...` (unlikely but just in case)
+        }
 
         if (content !== originalContent) {
             await fs.writeFile(file, content, 'utf8');

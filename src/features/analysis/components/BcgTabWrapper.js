@@ -4,15 +4,15 @@ import api from '@/lib/api';
 import BCGMatrix from './BCGMatrix';
 import dynamic from 'next/dynamic';
 
-const BcgDynamicMatrix = dynamic(() => import('@/components/charts/BcgDynamicMatrix'), { ssr: false });
-const BcgCapitalFlowMap = dynamic(() => import('@/components/charts/BcgCapitalFlowMap'), { ssr: false });
-const BcgStrategyBridge = dynamic(() => import('@/components/charts/BcgStrategyBridge'), { ssr: false });
-const BcgPortfolioGalaxy = dynamic(() => import('@/components/charts/BcgPortfolioGalaxy'), { ssr: false });
-const BcgGrowthMomentum = dynamic(() => import('@/components/charts/BcgGrowthMomentum'), { ssr: false });
-const BcgSurvivabilityIndex = dynamic(() => import('@/components/charts/BcgSurvivabilityIndex'), { ssr: false });
-const BcgSimulationEngine = dynamic(() => import('@/components/charts/BcgSimulationEngine'), { ssr: false });
-const BcgStrategicOptionality = dynamic(() => import('@/components/charts/BcgStrategicOptionality'), { ssr: false });
-const BcgInstitutionalCockpit = dynamic(() => import('@/components/charts/BcgInstitutionalCockpit'), { ssr: false });
+const BcgDynamicMatrix = dynamic(() => import('@/features/charts/components/BcgDynamicMatrix'), { ssr: false });
+const BcgCapitalFlowMap = dynamic(() => import('@/features/charts/components/BcgCapitalFlowMap'), { ssr: false });
+const BcgStrategyBridge = dynamic(() => import('@/features/charts/components/BcgStrategyBridge'), { ssr: false });
+const BcgPortfolioGalaxy = dynamic(() => import('@/features/charts/components/BcgPortfolioGalaxy'), { ssr: false });
+const BcgGrowthMomentum = dynamic(() => import('@/features/charts/components/BcgGrowthMomentum'), { ssr: false });
+const BcgSurvivabilityIndex = dynamic(() => import('@/features/charts/components/BcgSurvivabilityIndex'), { ssr: false });
+const BcgSimulationEngine = dynamic(() => import('@/features/charts/components/BcgSimulationEngine'), { ssr: false });
+const BcgStrategicOptionality = dynamic(() => import('@/features/charts/components/BcgStrategicOptionality'), { ssr: false });
+const BcgInstitutionalCockpit = dynamic(() => import('@/features/charts/components/BcgInstitutionalCockpit'), { ssr: false });
 
 const BCG_TABS = [
   { id: 'cockpit',     label: '🏙️ Cockpit',            premium: true },

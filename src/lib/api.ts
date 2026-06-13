@@ -63,7 +63,7 @@ const api = {
   compareSnapshots: (institutionId: any, v1: any, v2: any) => request(`/twin/${institutionId}/compare?v1=${v1}&v2=${v2}`),
   getTwinTimeline: (institutionId: any, days = 90) => request(`/twin/${institutionId}/timeline?days=${days}`),
   recordTwinMetric: (institutionId: any, data: any) => request(`/twin/${institutionId}/metrics`, { method: 'POST', body: JSON.stringify(data) }),
-  getTwinMetricSeries: (institutionId: any, metricKey: any, fromDate: any, toDate: any) => {
+  getTwinMetricSeries: (institutionId: any, metricKey: any, fromDate?: any, toDate?: any) => {
     const params = new URLSearchParams();
     if (fromDate) params.set('from_date', fromDate);
     if (toDate) params.set('to_date', toDate);

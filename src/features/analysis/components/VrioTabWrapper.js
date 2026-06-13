@@ -4,14 +4,14 @@ import api from '@/lib/api';
 import VRIOAnalysis from './VRIOAnalysis';
 import dynamic from 'next/dynamic';
 
-const VrioFortressMap = dynamic(() => import('@/components/charts/VrioFortressMap'), { ssr: false });
-const VrioGenomeStrip = dynamic(() => import('@/components/charts/VrioGenomeStrip'), { ssr: false });
-const VrioActionBridge = dynamic(() => import('@/components/charts/VrioActionBridge'), { ssr: false });
-const VrioStrategicFunnel = dynamic(() => import('@/components/charts/VrioStrategicFunnel'), { ssr: false });
-const VrioAdvantagePyramid = dynamic(() => import('@/components/charts/VrioAdvantagePyramid'), { ssr: false });
-const VrioDependencyGraph = dynamic(() => import('@/components/charts/VrioDependencyGraph'), { ssr: false });
-const VrioLifecycleTimeline = dynamic(() => import('@/components/charts/VrioLifecycleTimeline'), { ssr: false });
-const VrioDynamicCapabilityEngine = dynamic(() => import('@/components/charts/VrioDynamicCapabilityEngine'), { ssr: false });
+const VrioFortressMap = dynamic(() => import('@/features/charts/components/VrioFortressMap'), { ssr: false });
+const VrioGenomeStrip = dynamic(() => import('@/features/charts/components/VrioGenomeStrip'), { ssr: false });
+const VrioActionBridge = dynamic(() => import('@/features/charts/components/VrioActionBridge'), { ssr: false });
+const VrioStrategicFunnel = dynamic(() => import('@/features/charts/components/VrioStrategicFunnel'), { ssr: false });
+const VrioAdvantagePyramid = dynamic(() => import('@/features/charts/components/VrioAdvantagePyramid'), { ssr: false });
+const VrioDependencyGraph = dynamic(() => import('@/features/charts/components/VrioDependencyGraph'), { ssr: false });
+const VrioLifecycleTimeline = dynamic(() => import('@/features/charts/components/VrioLifecycleTimeline'), { ssr: false });
+const VrioDynamicCapabilityEngine = dynamic(() => import('@/features/charts/components/VrioDynamicCapabilityEngine'), { ssr: false });
 
 const VRIO_TABS = [
   { id: 'dc',       label: '🔬 Dynamic Capabilities', premium: true },

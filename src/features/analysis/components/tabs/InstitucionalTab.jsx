@@ -1,8 +1,8 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-const InstitutionalCockpit = dynamic(() => import('@/components/charts/InstitutionalCockpit'), { ssr: false });
-const ScenarioStressTest = dynamic(() => import('@/components/charts/ScenarioStressTest'), { ssr: false });
+const InstitutionalCockpit = dynamic(() => import('@/features/charts/components/InstitutionalCockpit'), { ssr: false });
+const ScenarioStressTest = dynamic(() => import('@/features/charts/components/ScenarioStressTest'), { ssr: false });
 
 export default function InstitucionalTab({ planId, state, actions }) {
   const { instView } = state;

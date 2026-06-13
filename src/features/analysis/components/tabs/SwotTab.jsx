@@ -3,13 +3,13 @@ import dynamic from 'next/dynamic';
 import FallbackBadge from '@/components/FallbackBadge';
 import FODAAnalysis from '@/features/analysis/components/FODAAnalysis';
 
-const SwotTowsFlow = dynamic(() => import('@/components/charts/SwotTowsFlow'), { ssr: false });
-const SwotTensionHeatmap = dynamic(() => import('@/components/charts/SwotTensionHeatmap'), { ssr: false });
-const SwotInfluenceNetwork = dynamic(() => import('@/components/charts/SwotInfluenceNetwork'), { ssr: false });
-const SwotPositioningMatrix = dynamic(() => import('@/components/charts/SwotPositioningMatrix'), { ssr: false });
-const SwotConstellationMap = dynamic(() => import('@/components/charts/SwotConstellationMap'), { ssr: false });
-const SwotScenarioSimulator = dynamic(() => import('@/components/charts/SwotScenarioSimulator'), { ssr: false });
-const SwotInstitutionalCockpit = dynamic(() => import('@/components/charts/SwotInstitutionalCockpit'), { ssr: false });
+const SwotTowsFlow = dynamic(() => import('@/features/charts/components/SwotTowsFlow'), { ssr: false });
+const SwotTensionHeatmap = dynamic(() => import('@/features/charts/components/SwotTensionHeatmap'), { ssr: false });
+const SwotInfluenceNetwork = dynamic(() => import('@/features/charts/components/SwotInfluenceNetwork'), { ssr: false });
+const SwotPositioningMatrix = dynamic(() => import('@/features/charts/components/SwotPositioningMatrix'), { ssr: false });
+const SwotConstellationMap = dynamic(() => import('@/features/charts/components/SwotConstellationMap'), { ssr: false });
+const SwotScenarioSimulator = dynamic(() => import('@/features/charts/components/SwotScenarioSimulator'), { ssr: false });
+const SwotInstitutionalCockpit = dynamic(() => import('@/features/charts/components/SwotInstitutionalCockpit'), { ssr: false });
 
 export default function SwotTab({ planId, state, actions }) {
   const { swot, tows, swotView, isLoading, towsLoading } = state;

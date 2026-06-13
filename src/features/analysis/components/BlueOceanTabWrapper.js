@@ -4,14 +4,14 @@ import api from '@/lib/api';
 import BlueOceanCanvas from './BlueOceanCanvas';
 import dynamic from 'next/dynamic';
 
-const BoStrategyCanvas = dynamic(() => import('@/components/charts/BoStrategyCanvas'), { ssr: false });
-const BoErrcGrid = dynamic(() => import('@/components/charts/BoErrcGrid'), { ssr: false });
-const BoValueDivergence = dynamic(() => import('@/components/charts/BoValueDivergence'), { ssr: false });
-const BoCompetitorRadar = dynamic(() => import('@/components/charts/BoCompetitorRadar'), { ssr: false });
-const BoStrategicDNA = dynamic(() => import('@/components/charts/BoStrategicDNA'), { ssr: false });
-const BoNonCustomerMap = dynamic(() => import('@/components/charts/BoNonCustomerMap'), { ssr: false });
-const BoSimulator = dynamic(() => import('@/components/charts/BoSimulator'), { ssr: false });
-const BoCockpit = dynamic(() => import('@/components/charts/BoCockpit'), { ssr: false });
+const BoStrategyCanvas = dynamic(() => import('@/features/charts/components/BoStrategyCanvas'), { ssr: false });
+const BoErrcGrid = dynamic(() => import('@/features/charts/components/BoErrcGrid'), { ssr: false });
+const BoValueDivergence = dynamic(() => import('@/features/charts/components/BoValueDivergence'), { ssr: false });
+const BoCompetitorRadar = dynamic(() => import('@/features/charts/components/BoCompetitorRadar'), { ssr: false });
+const BoStrategicDNA = dynamic(() => import('@/features/charts/components/BoStrategicDNA'), { ssr: false });
+const BoNonCustomerMap = dynamic(() => import('@/features/charts/components/BoNonCustomerMap'), { ssr: false });
+const BoSimulator = dynamic(() => import('@/features/charts/components/BoSimulator'), { ssr: false });
+const BoCockpit = dynamic(() => import('@/features/charts/components/BoCockpit'), { ssr: false });
 
 const BO_TABS = [
   { id: 'cockpit',     label: '🏙️ Cockpit',            premium: true },
