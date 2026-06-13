@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
 import api from '@/lib/api';
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useXMatrix, useCatchball } from '@/lib/swr-hooks';
 
 const AXIS_META = {

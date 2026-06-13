@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import HoshinPage from '@/app/hoshin/page';
-import * as PlanContext from '@/context/PlanContext';
+import * as PlanContext from '@/features/plan/context/PlanContext';
 import * as SwrHooks from '@/lib/swr-hooks';
 import api from '@/lib/api';
 import { vi, describe, it, expect, beforeEach } from 'vitest';

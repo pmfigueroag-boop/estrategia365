@@ -1,11 +1,11 @@
 "use client";
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState } from 'react';
 import { useProgress } from '@/lib/swr-hooks';
 import api from '@/lib/api';
-import ObjectiveCard from '@/components/execution/ObjectiveCard';
-import OkrForm from '@/components/execution/OkrForm';
+import ObjectiveCard from '@/features/execution/components/ObjectiveCard';
+import OkrForm from '@/features/execution/components/OkrForm';
 
 /**
  * ExecutionPage — Thin Routing Shell (Phase 2)

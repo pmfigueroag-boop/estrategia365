@@ -1,4 +1,4 @@
-import { useParadigm } from '@/context/ParadigmContext';
+import { useParadigm } from '@/features/plan/context/ParadigmContext';
 import { useState } from 'react';
 
 export default function StepPlan({ onPrev, onFinish, isSaving }) {

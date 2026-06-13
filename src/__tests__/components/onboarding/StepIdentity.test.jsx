@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { onboardingSchema } from '@/app/onboarding/schema';
-import StepIdentity from '@/components/onboarding/StepIdentity';
+import StepIdentity from '@/features/onboarding/components/StepIdentity';
 
 // Wrapper that provides FormProvider context (required by useFormContext)
 function FormWrapper({ children, defaultValues = {} }) {

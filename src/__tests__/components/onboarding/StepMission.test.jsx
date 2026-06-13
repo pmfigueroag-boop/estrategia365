@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { describe, it, expect, vi } from 'vitest';
-import StepMission from '@/components/onboarding/StepMission';
+import StepMission from '@/features/onboarding/components/StepMission';
 
 function Wrapper({ children }) {
   const methods = useForm({

@@ -5,7 +5,7 @@
  * Shows conversion funnel and KPIs for onboarding flow.
  * Accessible at /onboarding/metrics
  */
-import OnboardingFunnel from '@/components/onboarding/OnboardingFunnel';
+import OnboardingFunnel from '@/features/onboarding/components/OnboardingFunnel';
 
 export default function OnboardingMetricsPage() {
   return (

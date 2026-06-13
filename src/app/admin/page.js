@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
 import { SectionErrorBoundary } from '@/components/ErrorBoundary';
-import GaugeArc from '@/components/charts/GaugeArc';
+import GaugeArc from '@/features/charts/components/GaugeArc';
 
 /**
  * Tenant Admin Console — Phase 5

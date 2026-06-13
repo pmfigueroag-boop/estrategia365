@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import StepRiskCulture from '@/components/onboarding/StepRiskCulture';
+import StepRiskCulture from '@/features/onboarding/components/StepRiskCulture';
 
 vi.mock('@/context/ToastContext', () => ({
   useToast: () => ({ success: vi.fn(), error: vi.fn(), warning: vi.fn(), info: vi.fn() }),

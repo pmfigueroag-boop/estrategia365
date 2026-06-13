@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Home from '@/app/page';
 import api from '@/lib/api';
-import { usePlanContext } from '@/context/PlanContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useRouter } from 'next/navigation';
 
 // Mock dependencies

@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 
 export default function AuditPage() {
   const toast = useToast();

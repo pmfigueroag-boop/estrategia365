@@ -1,11 +1,11 @@
 "use client";
-import { useParadigm } from '@/context/ParadigmContext';
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useParadigm } from '@/features/plan/context/ParadigmContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState } from 'react';
 import { usePestel } from '@/lib/swr-hooks';
 import api from '@/lib/api';
-import { PestelRadar } from '@/components/charts';
+import { PestelRadar } from '@/features/charts/components';
 
 const SEVERITY_COLORS = {
   high: 'var(--danger-color)',

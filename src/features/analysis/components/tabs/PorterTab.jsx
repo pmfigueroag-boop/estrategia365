@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import FallbackBadge from '@/components/FallbackBadge';
-import PorterForces from '@/components/analysis/PorterForces';
+import PorterForces from '@/features/analysis/components/PorterForces';
 
 const PorterRadar = dynamic(() => import('@/components/charts/PorterRadar'), { ssr: false });
 const PorterHeatMap = dynamic(() => import('@/components/charts/PorterHeatMap'), { ssr: false });

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import StepDocuments from '@/components/onboarding/StepDocuments';
+import StepDocuments from '@/features/onboarding/components/StepDocuments';
 
 // Mock the api module
 vi.mock('@/lib/api', () => ({

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import StepStakeholders from '@/components/onboarding/StepStakeholders';
+import StepStakeholders from '@/features/onboarding/components/StepStakeholders';
 
 // Mock the toast and api modules
 vi.mock('@/context/ToastContext', () => ({

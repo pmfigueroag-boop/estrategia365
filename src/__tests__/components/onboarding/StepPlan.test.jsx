@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import StepPlan from '@/components/onboarding/StepPlan';
+import StepPlan from '@/features/onboarding/components/StepPlan';
 
 // Mock the ParadigmContext
 vi.mock('@/context/ParadigmContext', () => ({

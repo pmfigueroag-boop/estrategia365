@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useCallback, useRef } from 'react';
 
-const ToastContext = createContext();
+const ToastContext = createContext<any>(null);
 
 const ICONS = {
   success: '✓',

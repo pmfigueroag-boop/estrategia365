@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import AnalysisPage from '@/app/analysis/page';
-import { usePlanContext } from '@/context/PlanContext';
-import { useToast } from '@/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
 import { useAnalysis } from '@/app/analysis/hooks/useAnalysis';
 
 // Mocks

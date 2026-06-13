@@ -1,7 +1,7 @@
 "use client";
-import { useParadigm } from '@/context/ParadigmContext';
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useParadigm } from '@/features/plan/context/ParadigmContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState, useRef, useEffect } from 'react';
 import api from '@/lib/api';
 

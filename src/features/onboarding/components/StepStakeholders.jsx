@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
-import { useToast } from '@/context/ToastContext';
+import { useToast } from '@/features/plan/context/ToastContext';
 
 const STAKEHOLDER_TYPES = [
   { value: 'client', label: '👤 Cliente' },

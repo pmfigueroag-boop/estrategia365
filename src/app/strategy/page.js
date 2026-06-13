@@ -1,8 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useKernel, useCausal, usePulses, useGraph } from '@/lib/swr-hooks';
 import {
   KernelDiagnosis,
@@ -14,7 +14,7 @@ import {
   CapabilityGaps,
   RiskNodes,
   DecisionApprovalModal,
-} from '@/components/strategy';
+} from '@/features/strategy/components';
 
 /**
  * StrategyPage — Thin routing shell for Strategy Decision Core

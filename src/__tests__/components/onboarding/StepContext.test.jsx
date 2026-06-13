@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { onboardingSchema } from '@/app/onboarding/schema';
-import StepContext from '@/components/onboarding/StepContext';
+import StepContext from '@/features/onboarding/components/StepContext';
 
 function FormWrapper({ children }) {
   const methods = useForm({

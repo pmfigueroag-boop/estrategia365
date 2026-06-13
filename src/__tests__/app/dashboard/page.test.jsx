@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import DashboardPage from '@/app/dashboard/page';
-import { usePlanContext } from '@/context/PlanContext';
-import { useToast } from '@/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
 import * as swrHooks from '@/lib/swr-hooks';
 import api from '@/lib/api';
 

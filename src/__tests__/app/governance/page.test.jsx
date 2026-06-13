@@ -2,8 +2,8 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import GovernancePage from '@/app/governance/page';
 import api from '@/lib/api';
-import * as ToastContext from '@/context/ToastContext';
-import * as PlanContext from '@/context/PlanContext';
+import * as ToastContext from '@/features/plan/context/ToastContext';
+import * as PlanContext from '@/features/plan/context/PlanContext';
 
 vi.mock('@/lib/api', () => ({
   default: {

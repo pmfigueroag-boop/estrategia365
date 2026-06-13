@@ -1,13 +1,13 @@
 "use client";
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState } from 'react';
 import { useBsc, useProgress } from '@/lib/swr-hooks';
 import api from '@/lib/api';
-import BscPerspectives from '@/components/execution/BscPerspectives';
-import StrategyMap from '@/components/execution/StrategyMap';
-import BscForm from '@/components/execution/BscForm';
-import { BscGauge } from '@/components/charts';
+import BscPerspectives from '@/features/execution/components/BscPerspectives';
+import StrategyMap from '@/features/execution/components/StrategyMap';
+import BscForm from '@/features/execution/components/BscForm';
+import { BscGauge } from '@/features/charts/components';
 
 /**
  * BSCPage — Doctrinal Phase 4 (Diseño / Traducción)

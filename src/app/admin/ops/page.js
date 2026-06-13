@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { usePlanContext } from '@/context/PlanContext';
-import SLODashboard from '@/components/ops/SLODashboard';
-import AIHealthPanel from '@/components/ops/AIHealthPanel';
-import LogViewer from '@/components/ops/LogViewer';
-import PerformanceMetrics from '@/components/ops/PerformanceMetrics';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
+import SLODashboard from '@/features/ops/components/SLODashboard';
+import AIHealthPanel from '@/features/ops/components/AIHealthPanel';
+import LogViewer from '@/features/ops/components/LogViewer';
+import PerformanceMetrics from '@/features/ops/components/PerformanceMetrics';
 import { SectionErrorBoundary } from '@/components/ErrorBoundary';
 
 export default function OpsPage() {

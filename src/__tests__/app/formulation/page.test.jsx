@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import FormulationPage from '@/app/formulation/page';
-import { usePlanContext } from '@/context/PlanContext';
-import { useToast } from '@/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
 import api from '@/lib/api';
 
 // Mocks

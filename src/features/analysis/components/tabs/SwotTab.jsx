@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import FallbackBadge from '@/components/FallbackBadge';
-import FODAAnalysis from '@/components/analysis/FODAAnalysis';
+import FODAAnalysis from '@/features/analysis/components/FODAAnalysis';
 
 const SwotTowsFlow = dynamic(() => import('@/components/charts/SwotTowsFlow'), { ssr: false });
 const SwotTensionHeatmap = dynamic(() => import('@/components/charts/SwotTensionHeatmap'), { ssr: false });

@@ -1,8 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
-import GaugeArc from '@/components/charts/GaugeArc';
-import SparkLine from '@/components/charts/SparkLine';
+import GaugeArc from '@/features/charts/components/GaugeArc';
+import SparkLine from '@/features/charts/components/SparkLine';
 
 /**
  * SLODashboard — Service Level Objectives

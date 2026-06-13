@@ -1,16 +1,16 @@
 "use client";
-import { usePlanContext } from '@/context/PlanContext';
-import { useToast } from '@/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
 import DiagnosticReadiness from '@/components/DiagnosticReadiness';
 
-import PestelTab from '@/components/analysis/tabs/PestelTab';
-import PorterTab from '@/components/analysis/tabs/PorterTab';
-import SwotTab from '@/components/analysis/tabs/SwotTab';
-import InstitucionalTab from '@/components/analysis/tabs/InstitucionalTab';
+import PestelTab from '@/features/analysis/components/tabs/PestelTab';
+import PorterTab from '@/features/analysis/components/tabs/PorterTab';
+import SwotTab from '@/features/analysis/components/tabs/SwotTab';
+import InstitucionalTab from '@/features/analysis/components/tabs/InstitucionalTab';
 
-import VrioTabWrapper from '@/components/analysis/VrioTabWrapper';
-import BcgTabWrapper from '@/components/analysis/BcgTabWrapper';
-import BlueOceanTabWrapper from '@/components/analysis/BlueOceanTabWrapper';
+import VrioTabWrapper from '@/features/analysis/components/VrioTabWrapper';
+import BcgTabWrapper from '@/features/analysis/components/BcgTabWrapper';
+import BlueOceanTabWrapper from '@/features/analysis/components/BlueOceanTabWrapper';
 
 import { useAnalysis } from './hooks/useAnalysis';
 

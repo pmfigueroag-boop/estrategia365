@@ -1,10 +1,10 @@
 "use client";
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState } from 'react';
 import { useSevenS } from '@/lib/swr-hooks';
 import api from '@/lib/api';
-import { SevenSRadar } from '@/components/charts';
+import { SevenSRadar } from '@/features/charts/components';
 
 const DIMENSIONS = [
   { id: 'strategy', label: 'Strategy', icon: '🎯', desc: 'Dirección y plan competitivo', type: 'hard' },

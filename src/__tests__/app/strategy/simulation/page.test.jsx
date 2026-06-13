@@ -3,8 +3,8 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import SimulationPage from '../../../../app/strategy/simulation/page';
 import api from '@/lib/api';
-import { usePlanContext } from '@/context/PlanContext';
-import { useToast } from '@/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
 
 vi.mock('@/lib/api', () => ({
   default: {

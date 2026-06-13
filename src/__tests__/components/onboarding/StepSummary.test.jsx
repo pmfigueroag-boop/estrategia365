@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import StepSummary from '@/components/onboarding/StepSummary';
+import StepSummary from '@/features/onboarding/components/StepSummary';
 
 // Mock ToastContext
 const mockToast = { success: vi.fn(), error: vi.fn(), info: vi.fn(), warning: vi.fn() };

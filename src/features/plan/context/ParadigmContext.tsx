@@ -13,7 +13,7 @@ export const paradigms = [
   { id: 'mepyd', name: 'Plan Estratégico Institucional (MEPyD)', short: 'PEI / MEPyD' },
 ];
 
-const ParadigmContext = createContext();
+const ParadigmContext = createContext<any>(null);
 
 export function ParadigmProvider({ children }) {
   const [activeParadigm, setActiveParadigm] = useState(paradigms[0]);

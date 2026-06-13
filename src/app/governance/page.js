@@ -1,12 +1,12 @@
 'use client';
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
-import BudgetGauge from '@/components/governance/BudgetGauge';
-import QualityGatePanel from '@/components/governance/QualityGatePanel';
-import MaturityRadar from '@/components/governance/MaturityRadar';
-import ReasoningTimeline from '@/components/governance/ReasoningTimeline';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
+import BudgetGauge from '@/features/governance/components/BudgetGauge';
+import QualityGatePanel from '@/features/governance/components/QualityGatePanel';
+import MaturityRadar from '@/features/governance/components/MaturityRadar';
+import ReasoningTimeline from '@/features/governance/components/ReasoningTimeline';
 import { SectionErrorBoundary } from '@/components/ErrorBoundary';
 
 export default function GovernancePage() {

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import api from '@/lib/api';
-import { usePlanContext } from '@/context/PlanContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 
 const SECTOR_META = {
   public: { icon: '🏛️', label: 'Sector Público', color: '#8b5cf6' },

@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import api from '@/lib/api';
-import { useToast } from '@/context/ToastContext';
+import { useToast } from '@/features/plan/context/ToastContext';
 
 const DOC_TYPES = [
   { value: 'strategic_plan', label: '📋 Plan Estratégico' },

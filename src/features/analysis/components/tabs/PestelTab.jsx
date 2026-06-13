@@ -1,12 +1,12 @@
 import React from 'react';
 import FallbackBadge, { FallbackItemTag } from '@/components/FallbackBadge';
-import ManualPestelForm from '@/components/analysis/ManualPestelForm';
+import ManualPestelForm from '@/features/analysis/components/ManualPestelForm';
 import { 
   PestelRadar, PestelHeatMap, PestelPriorityMatrix, PestelExecutiveSummary, 
   PestelSignalDetail, PestelSignalFeed, PestelStrategyBridge, PestelVolatilityGauge, 
   PestelEarlyWarnings, PestelCorrelationGraph, PestelExposureDashboard, 
   PestelScenarioMatrix, PestelImpactCascade, PestelConfidenceOverlay, PestelForesightCockpit 
-} from '@/components/charts';
+} from '@/features/charts/components';
 import api from '@/lib/api';
 
 const SEVERITY_COLORS = { high: 'var(--danger-color)', medium: 'var(--warning-color)', low: 'var(--success-color)' };

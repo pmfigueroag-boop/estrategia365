@@ -9,21 +9,21 @@ import { FormProvider } from 'react-hook-form';
 import { useOnboarding } from './hooks/useOnboarding';
 import { useAccessibleStep, SkipToContent } from './hooks/useAccessibleStep';
 
-import StepIdentity from '@/components/onboarding/StepIdentity';
-import StepMission from '@/components/onboarding/StepMission';
-import StepContext from '@/components/onboarding/StepContext';
-import StepStakeholders from '@/components/onboarding/StepStakeholders';
-import StepGovernance from '@/components/onboarding/StepGovernance';
-import StepRiskCulture from '@/components/onboarding/StepRiskCulture';
-import StepOperations from '@/components/onboarding/StepOperations';
-import StepMetrics from '@/components/onboarding/StepMetrics';
-import StepDocuments from '@/components/onboarding/StepDocuments';
-import StepSummary from '@/components/onboarding/StepSummary';
-import StepPlan from '@/components/onboarding/StepPlan';
-import SaveStatusIndicator from '@/components/onboarding/SaveStatusIndicator';
-import { StepErrorBoundary } from '@/components/onboarding/StepErrorBoundary';
-import OnboardingStepper from '@/components/onboarding/OnboardingStepper';
-import StepTransition from '@/components/onboarding/StepTransition';
+import StepIdentity from '@/features/onboarding/components/StepIdentity';
+import StepMission from '@/features/onboarding/components/StepMission';
+import StepContext from '@/features/onboarding/components/StepContext';
+import StepStakeholders from '@/features/onboarding/components/StepStakeholders';
+import StepGovernance from '@/features/onboarding/components/StepGovernance';
+import StepRiskCulture from '@/features/onboarding/components/StepRiskCulture';
+import StepOperations from '@/features/onboarding/components/StepOperations';
+import StepMetrics from '@/features/onboarding/components/StepMetrics';
+import StepDocuments from '@/features/onboarding/components/StepDocuments';
+import StepSummary from '@/features/onboarding/components/StepSummary';
+import StepPlan from '@/features/onboarding/components/StepPlan';
+import SaveStatusIndicator from '@/features/onboarding/components/SaveStatusIndicator';
+import { StepErrorBoundary } from '@/features/onboarding/components/StepErrorBoundary';
+import OnboardingStepper from '@/features/onboarding/components/OnboardingStepper';
+import StepTransition from '@/features/onboarding/components/StepTransition';
 import service from './services/onboardingService';
 
 export default function OnboardingPage() {

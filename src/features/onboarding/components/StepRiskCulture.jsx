@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useToast } from '@/context/ToastContext';
+import { useToast } from '@/features/plan/context/ToastContext';
 import api from '@/lib/api';
 
 const RISK_CATEGORIES = [

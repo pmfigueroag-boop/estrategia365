@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
-import GaugeArc from '@/components/charts/GaugeArc';
+import GaugeArc from '@/features/charts/components/GaugeArc';
 
 /**
  * BudgetGauge — AI Budget Widget

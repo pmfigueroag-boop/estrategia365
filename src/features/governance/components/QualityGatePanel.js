@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
-import SparkLine from '@/components/charts/SparkLine';
+import SparkLine from '@/features/charts/components/SparkLine';
 
 /**
  * QualityGatePanel — Module Quality Scores

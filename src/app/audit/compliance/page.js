@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { usePlanContext } from '@/context/PlanContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import api from '@/lib/api';
-import SOC2Matrix from '@/components/compliance/SOC2Matrix';
-import RiskHeatmap from '@/components/compliance/RiskHeatmap';
-import DoctrineViewer from '@/components/compliance/DoctrineViewer';
+import SOC2Matrix from '@/features/compliance/components/SOC2Matrix';
+import RiskHeatmap from '@/features/compliance/components/RiskHeatmap';
+import DoctrineViewer from '@/features/compliance/components/DoctrineViewer';
 import { SectionErrorBoundary } from '@/components/ErrorBoundary';
 
 export default function CompliancePage() {

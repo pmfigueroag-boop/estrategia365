@@ -7,7 +7,7 @@
 "use client";
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
-const PlanContext = createContext();
+const PlanContext = createContext<any>(null);
 
 export function PlanProvider({ children }) {
   const [planId, setPlanIdState] = useState(null);

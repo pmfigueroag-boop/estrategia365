@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
-import RadarChart from '@/components/charts/RadarChart';
+import RadarChart from '@/features/charts/components/RadarChart';
 
 /**
  * MaturityRadar — AI Maturity Score

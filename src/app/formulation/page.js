@@ -1,6 +1,6 @@
 "use client";
-import { useToast } from '@/context/ToastContext';
-import { usePlanContext } from '@/context/PlanContext';
+import { useToast } from '@/features/plan/context/ToastContext';
+import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState, useEffect } from 'react';
 import api from '@/lib/api';
 import DiagnosticReadiness from '@/components/DiagnosticReadiness';
