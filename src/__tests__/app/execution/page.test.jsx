@@ -8,8 +8,8 @@ import * as swrHooks from '@/lib/swr-hooks';
 import api from '@/lib/api';
 
 // Mocks
-vi.mock('@/context/PlanContext');
-vi.mock('@/context/ToastContext');
+vi.mock('@/features/plan/context/PlanContext');
+vi.mock('@/features/plan/context/ToastContext');
 vi.mock('@/lib/swr-hooks');
 vi.mock('@/lib/api', () => ({
   default: {
@@ -19,10 +19,10 @@ vi.mock('@/lib/api', () => ({
 }));
 
 // Mock child components
-vi.mock('@/components/execution/ObjectiveCard', () => ({
+vi.mock('@/features/execution/components/ObjectiveCard', () => ({
   default: ({ obj }) => <div data-testid="mock-objective-card">{obj.title}</div>
 }));
-vi.mock('@/components/execution/OkrForm', () => ({
+vi.mock('@/features/execution/components/OkrForm', () => ({
   default: ({ onSubmit, onCancel }) => (
     <div data-testid="mock-okr-form">
       <button onClick={() => onSubmit({ title: 'New Objective' })}>Submit Objective</button>

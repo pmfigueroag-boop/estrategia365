@@ -16,7 +16,7 @@ vi.mock('@/app/onboarding/services/onboardingService', () => ({
   }
 }));
 
-vi.mock('@/context/ToastContext', () => ({
+vi.mock('@/features/plan/context/ToastContext', () => ({
   useToast: () => ({ success: vi.fn(), error: vi.fn(), warning: vi.fn() })
 }));
 

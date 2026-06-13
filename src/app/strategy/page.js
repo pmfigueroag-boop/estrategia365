@@ -54,9 +54,12 @@ export default function StrategyPage() {
 
   useEffect(() => {
     if (isGenerating) {
-      setLoadingStep(0);
+      let rAF = requestAnimationFrame(() => setLoadingStep(0));
       const interval = setInterval(() => { setLoadingStep(prev => (prev < 5 ? prev + 1 : prev)); }, 2500);
-      return () => clearInterval(interval);
+      return () => {
+        cancelAnimationFrame(rAF);
+        clearInterval(interval);
+      };
     }
   }, [isGenerating]);
 

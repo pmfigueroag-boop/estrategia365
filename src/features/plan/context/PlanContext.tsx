@@ -16,9 +16,14 @@ export function PlanProvider({ children }) {
 
   // Hydrate from localStorage on mount (client only)
   useEffect(() => {
-    setPlanIdState(localStorage.getItem('current_plan_id'));
-    setInstitutionIdState(localStorage.getItem('institution_id'));
-    setHydrated(true);
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      setPlanIdState(localStorage.getItem('current_plan_id'));
+      setInstitutionIdState(localStorage.getItem('institution_id'));
+      setHydrated(true);
+    });
+    return () => { active = false; };
   }, []);
 
   const setPlanId = useCallback((id) => {

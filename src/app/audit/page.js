@@ -13,17 +13,24 @@ export default function AuditPage() {
   const [chainStatus, setChainStatus] = useState(null);
 
   useEffect(() => {
-    if (!planId) { setIsLoading(false); return; }
+    let active = true;
+    if (!planId) { 
+      Promise.resolve().then(() => { if (active) setIsLoading(false); }); 
+      return () => { active = false; };
+    }
     api.getAuditTrail(planId)
       .then(data => {
+        if (!active) return;
         setLogs(data.logs || []);
         setChainStatus(data.is_valid);
         setIsLoading(false);
       })
       .catch(err => {
+        if (!active) return;
         toast.error(err.message);
         setIsLoading(false);
       });
+    return () => { active = false; };
   }, [planId]);
 
   const handleVerifyChain = async () => {

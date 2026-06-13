@@ -8,8 +8,8 @@ import * as swrHooks from '@/lib/swr-hooks';
 import api from '@/lib/api';
 
 // Mocks
-vi.mock('@/context/PlanContext');
-vi.mock('@/context/ToastContext');
+vi.mock('@/features/plan/context/PlanContext');
+vi.mock('@/features/plan/context/ToastContext');
 vi.mock('@/lib/swr-hooks');
 vi.mock('@/lib/api', () => ({
   default: {

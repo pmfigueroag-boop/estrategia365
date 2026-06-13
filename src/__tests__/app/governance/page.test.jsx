@@ -17,16 +17,16 @@ vi.mock('@/lib/api', () => ({
 }));
 
 // Mock heavy subcomponents
-vi.mock('@/components/governance/BudgetGauge', () => ({
+vi.mock('@/features/governance/components/BudgetGauge', () => ({
   default: () => <div data-testid="budget-gauge">BudgetGauge Mock</div>
 }));
-vi.mock('@/components/governance/QualityGatePanel', () => ({
+vi.mock('@/features/governance/components/QualityGatePanel', () => ({
   default: () => <div data-testid="quality-gate">QualityGatePanel Mock</div>
 }));
-vi.mock('@/components/governance/MaturityRadar', () => ({
+vi.mock('@/features/governance/components/MaturityRadar', () => ({
   default: () => <div data-testid="maturity-radar">MaturityRadar Mock</div>
 }));
-vi.mock('@/components/governance/ReasoningTimeline', () => ({
+vi.mock('@/features/governance/components/ReasoningTimeline', () => ({
   default: () => <div data-testid="reasoning-timeline">ReasoningTimeline Mock</div>
 }));
 

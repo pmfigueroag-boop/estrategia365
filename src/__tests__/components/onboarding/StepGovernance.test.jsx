@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import StepGovernance from '@/features/onboarding/components/StepGovernance';
 
-vi.mock('@/context/ToastContext', () => ({
+vi.mock('@/features/plan/context/ToastContext', () => ({
   useToast: () => ({ success: vi.fn(), error: vi.fn(), warning: vi.fn(), info: vi.fn() }),
 }));
 

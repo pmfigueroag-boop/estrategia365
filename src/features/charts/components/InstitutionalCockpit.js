@@ -94,8 +94,9 @@ export default function InstitutionalCockpit({ planId }) {
   const [expanded, setExpanded] = useState(null);
 
   useEffect(() => {
+    let active = true;
     if (!planId) return;
-    setLoading(true);
+    Promise.resolve().then(() => { if (active) setLoading(true); });
     Promise.allSettled([
       api.getPorter(planId).then(d => ['porter', d]),
       api.getPestel(planId).then(d => ['pestel', d]),
@@ -104,11 +105,13 @@ export default function InstitutionalCockpit({ planId }) {
       api.getBCG(planId).then(d => ['bcg', d]),
       api.getBlueOcean(planId).then(d => ['blueocean', d]),
     ]).then(results => {
+      if (!active) return;
       const data = {};
       results.forEach(r => { if (r.status === 'fulfilled' && r.value) { data[r.value[0]] = r.value[1]; } });
       setModuleData(data);
       setLoading(false);
     });
+    return () => { active = false; };
   }, [planId]);
 
   const assessments = Object.entries(MODULE_META).map(([key, meta]) => ({

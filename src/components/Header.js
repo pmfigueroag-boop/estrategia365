@@ -48,7 +48,6 @@ const NAV_DOMAINS = [
     id: 'monitoreo', label: 'Monitoreo', icon: '📊',
     links: [
       { href: '/dashboard', label: '9. Command Center', desc: 'Dashboard Ejecutivo' },
-      { href: '/twin', label: '10. Digital Twin', desc: 'Snapshots · Métricas' },
     ],
   },
   {
@@ -79,11 +78,16 @@ export default function Header() {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useEffect(() => {
-    setPlanId(localStorage.getItem('e365_active_plan_id') || localStorage.getItem('current_plan_id'));
-    setPlanName(localStorage.getItem('e365_active_plan_name') || '');
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      setPlanId(localStorage.getItem('e365_active_plan_id') || localStorage.getItem('current_plan_id'));
+      setPlanName(localStorage.getItem('e365_active_plan_name') || '');
+    });
     if (api.isAuthenticated()) {
-      api.getMe().then(u => setUser(u)).catch(() => {});
+      api.getMe().then(u => { if (active) setUser(u); }).catch(() => {});
     }
+    return () => { active = false; };
   }, []);
 
   const handleLogout = async () => {

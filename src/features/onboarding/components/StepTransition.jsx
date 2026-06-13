@@ -12,8 +12,12 @@ export default function StepTransition({ stepKey, children }) {
   const [displayedKey, setDisplayedKey] = useState(stepKey);
 
   useEffect(() => {
-    // Trigger exit animation
-    setIsVisible(false);
+    if (stepKey === displayedKey) return;
+
+    let rAF;
+    rAF = requestAnimationFrame(() => {
+      setIsVisible(false);
+    });
 
     // After exit, swap content and trigger enter
     const timer = setTimeout(() => {
@@ -21,12 +25,18 @@ export default function StepTransition({ stepKey, children }) {
       setIsVisible(true);
     }, 150); // matches CSS exit duration
 
-    return () => clearTimeout(timer);
-  }, [stepKey]);
+    return () => {
+      clearTimeout(timer);
+      cancelAnimationFrame(rAF);
+    };
+  }, [stepKey, displayedKey]);
 
   // On mount, show immediately
   useEffect(() => {
-    setIsVisible(true);
+    const rAF = requestAnimationFrame(() => {
+      setIsVisible(true);
+    });
+    return () => cancelAnimationFrame(rAF);
   }, []);
 
   return (

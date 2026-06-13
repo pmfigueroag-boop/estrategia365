@@ -16,9 +16,14 @@ function PlanProvider({ children }) {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    setPlanIdState(localStorage.getItem('current_plan_id'));
-    setInstitutionIdState(localStorage.getItem('institution_id'));
-    setHydrated(true);
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      setPlanIdState(localStorage.getItem('current_plan_id'));
+      setInstitutionIdState(localStorage.getItem('institution_id'));
+      setHydrated(true);
+    });
+    return () => { active = false; };
   }, []);
 
   const setPlanId = useCallback((id) => {

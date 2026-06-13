@@ -47,8 +47,13 @@ export function useCsrfToken() {
     if (!cachedToken || Date.now() > tokenExpiry) {
       fetchToken();
     } else {
-      setToken(cachedToken);
-      setIsLoading(false);
+      let active = true;
+      Promise.resolve().then(() => {
+        if (!active) return;
+        setToken(cachedToken);
+        setIsLoading(false);
+      });
+      return () => { active = false; };
     }
   }, [fetchToken]);
 

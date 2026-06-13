@@ -23,13 +23,18 @@ export default function GovernancePage() {
   const [tenantId, setTenantId] = useState(1); // TODO: from auth context
 
   useEffect(() => {
-    if (!planId) { setIsLoading(false); return; }
+    let active = true;
+    if (!planId) { 
+      Promise.resolve().then(() => { if (active) setIsLoading(false); }); 
+      return () => { active = false; }; 
+    }
     Promise.all([
       api.getAuditTrail(planId).catch(() => ({ logs: [], is_valid: null })),
       api.getKernelHistory(planId).catch(() => []),
       api.getKernelStatus(planId).catch(() => null),
       api.getSsoStatus().catch(() => null),
     ]).then(([audit, history, status, sso]) => {
+      if (!active) return;
       setLogs(audit.logs || []);
       setChainStatus(audit.is_valid);
       setKernelHistory(Array.isArray(history) ? history : []);
@@ -37,6 +42,7 @@ export default function GovernancePage() {
       setSsoStatus(sso);
       setIsLoading(false);
     });
+    return () => { active = false; };
   }, [planId]);
 
   const handleVerifyChain = async () => {

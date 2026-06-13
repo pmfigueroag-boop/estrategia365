@@ -8,7 +8,7 @@ import api from '@/lib/api';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 
 // Mock dependencies
-vi.mock('@/context/ToastContext', () => ({
+vi.mock('@/features/plan/context/ToastContext', () => ({
   useToast: () => ({ success: vi.fn(), error: vi.fn() }),
 }));
 vi.mock('@/lib/api', () => ({

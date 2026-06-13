@@ -74,7 +74,7 @@ export function useOnboardingPersistence({ methods, institutionId, step }) {
   // ── Save on step change ────────────────────────────────
   useEffect(() => {
     if (institutionId && step > 1) {
-      doSave(true);
+      Promise.resolve().then(() => doSave(true));
     }
   }, [step]); // intentionally only step dependency
 

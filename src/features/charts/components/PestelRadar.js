@@ -51,7 +51,11 @@ export default function PestelRadar({ riskDistribution, signals = [] }) {
   const [sweepAngle, setSweepAngle] = useState(0);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    let active = true;
+    Promise.resolve().then(() => { if (active) setMounted(true); });
+    return () => { active = false; };
+  }, []);
 
   // Sweep animation
   useEffect(() => {

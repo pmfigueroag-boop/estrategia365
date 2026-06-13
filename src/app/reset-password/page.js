@@ -17,10 +17,15 @@ export default function ResetPasswordPage() {
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
+    let active = true;
     if (!token) {
-      setErrorMessage('Enlace inválido o expirado. Falta el token de recuperación.');
-      setStatus('error');
+      Promise.resolve().then(() => {
+        if (!active) return;
+        setErrorMessage('Enlace inválido o expirado. Falta el token de recuperación.');
+        setStatus('error');
+      });
     }
+    return () => { active = false; };
   }, [token]);
 
   const handleSubmit = async (e) => {

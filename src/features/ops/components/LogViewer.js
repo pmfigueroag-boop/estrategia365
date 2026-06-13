@@ -17,20 +17,28 @@ export default function LogViewer() {
   const [loading, setLoading] = useState(true);
   const [autoRefresh, setAutoRefresh] = useState(false);
 
-  const fetchLogs = useCallback(() => {
-    setLoading(true);
+  const fetchLogs = useCallback((active = true) => {
+    Promise.resolve().then(() => { if (active) setLoading(true); });
     api.getStructuredLogs(level, 100)
-      .then(d => setLogs(Array.isArray(d) ? d : (d.logs || d.entries || [])))
-      .catch(() => setLogs([]))
-      .finally(() => setLoading(false));
+      .then(d => { if (active) setLogs(Array.isArray(d) ? d : (d.logs || d.entries || [])); })
+      .catch(() => { if (active) setLogs([]); })
+      .finally(() => { if (active) setLoading(false); });
   }, [level]);
 
-  useEffect(() => { fetchLogs(); }, [fetchLogs]);
+  useEffect(() => {
+    let active = true;
+    fetchLogs(active);
+    return () => { active = false; };
+  }, [fetchLogs]);
 
   useEffect(() => {
     if (!autoRefresh) return;
-    const interval = setInterval(fetchLogs, 5000);
-    return () => clearInterval(interval);
+    let active = true;
+    const interval = setInterval(() => fetchLogs(active), 5000);
+    return () => {
+      active = false;
+      clearInterval(interval);
+    };
   }, [autoRefresh, fetchLogs]);
 
   const filtered = search

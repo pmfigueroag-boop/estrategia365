@@ -8,8 +8,8 @@ import * as swrHooks from '@/lib/swr-hooks';
 import api from '@/lib/api';
 
 // Mocks
-vi.mock('@/context/PlanContext');
-vi.mock('@/context/ToastContext');
+vi.mock('@/features/plan/context/PlanContext');
+vi.mock('@/features/plan/context/ToastContext');
 vi.mock('@/lib/swr-hooks');
 vi.mock('@/lib/api', () => ({
   default: {
@@ -19,13 +19,13 @@ vi.mock('@/lib/api', () => ({
 }));
 
 // Mock child components
-vi.mock('@/components/execution/BscPerspectives', () => ({
+vi.mock('@/features/execution/components/BscPerspectives', () => ({
   default: () => <div data-testid="mock-bsc-perspectives" />
 }));
-vi.mock('@/components/execution/StrategyMap', () => ({
+vi.mock('@/features/execution/components/StrategyMap', () => ({
   default: () => <div data-testid="mock-strategy-map" />
 }));
-vi.mock('@/components/execution/BscForm', () => ({
+vi.mock('@/features/execution/components/BscForm', () => ({
   default: ({ onSubmit, onCancel }) => (
     <div data-testid="mock-bsc-form">
       <button onClick={() => onSubmit({ name: 'New KPI' })}>Submit KPI</button>
@@ -33,7 +33,7 @@ vi.mock('@/components/execution/BscForm', () => ({
     </div>
   )
 }));
-vi.mock('@/components/charts', () => ({
+vi.mock('@/features/charts/components', () => ({
   BscGauge: () => <div data-testid="mock-bsc-gauge" />
 }));
 

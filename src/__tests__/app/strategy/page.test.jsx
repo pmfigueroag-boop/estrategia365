@@ -8,8 +8,8 @@ import * as swrHooks from '@/lib/swr-hooks';
 import api from '@/lib/api';
 
 // Mocks
-vi.mock('@/context/PlanContext');
-vi.mock('@/context/ToastContext');
+vi.mock('@/features/plan/context/PlanContext');
+vi.mock('@/features/plan/context/ToastContext');
 vi.mock('@/lib/swr-hooks');
 vi.mock('@/lib/api', () => ({
   default: {
@@ -23,7 +23,7 @@ vi.mock('@/lib/api', () => ({
 }));
 
 // Mock child components to isolate the routing shell logic
-vi.mock('@/components/strategy', () => ({
+vi.mock('@/features/strategy/components', () => ({
   KernelDiagnosis: () => <div data-testid="mock-kernel-diagnosis">KernelDiagnosis</div>,
   DecisionTable: ({ onStatusChange }) => (
     <div data-testid="mock-decision-table">

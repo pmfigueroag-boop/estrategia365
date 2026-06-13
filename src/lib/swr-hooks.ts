@@ -81,8 +81,6 @@ export const useDashboard = createHook('dashboard', (planId) => api.getDashboard
   refreshInterval: 30000, // Auto-refresh every 30s for live dashboard
 });
 
-// ── Wargaming Hooks ────────────────────────────────────────────
-export const useWargameSessions = createHook('wargame-sessions', (planId) => api.getWargameSessions(planId));
 
 // ── Workspace Hooks ────────────────────────────────────────────
 export function useWorkspace() {
@@ -103,22 +101,6 @@ export function useInstitutions() {
   return { institutions: data || [], error, isLoading, mutate };
 }
 
-// ── Digital Twin Hooks (Fase 3) ────────────────────────────────
-export const useTwinHealth = createHook('twin-health', (instId) => api.getTwinHealth(instId), {
-  refreshInterval: 60000, // Auto-refresh every 60s
-});
-export const useTwinSnapshots = createHook('twin-snapshots', (instId) => api.getSnapshots(instId));
-export const useTwinTimeline = createHook('twin-timeline', (instId) => api.getTwinTimeline(instId));
-
-export function useTwinMetrics(institutionId, metricKey) {
-  const key = institutionId && metricKey ? `twin-metrics/${institutionId}/${metricKey}` : null;
-  const { data, error, isLoading, mutate } = useSWR(
-    key,
-    () => api.getTwinMetricSeries(institutionId, metricKey),
-    DEFAULT_OPTIONS
-  );
-  return { data, error, isLoading, mutate };
-}
 
 // ══════════════════════════════════════════════════════════════
 // FASE 2: STRATEGIC INTELLIGENCE HUB HOOKS

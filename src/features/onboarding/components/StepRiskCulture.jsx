@@ -102,7 +102,9 @@ export default function StepRiskCulture({ onPrev, onNext, institutionId, knownRi
     notes: cultureProfile?.notes || '',
   });
 
-  useEffect(() => {
+  const [prevProfile, setPrevProfile] = useState(cultureProfile);
+  if (cultureProfile !== prevProfile) {
+    setPrevProfile(cultureProfile);
     if (cultureProfile) {
       setCulture({
         leadership_style: cultureProfile.leadership_style || '',
@@ -114,7 +116,7 @@ export default function StepRiskCulture({ onPrev, onNext, institutionId, knownRi
         notes: cultureProfile.notes || '',
       });
     }
-  }, [cultureProfile]);
+  }
 
   const handleAddRisk = async () => {
     if (!riskDesc.trim()) { toast.warning('Descripción del riesgo requerida'); return; }

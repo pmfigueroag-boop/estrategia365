@@ -106,7 +106,12 @@ export default function Home() {
   const [currentInstId, setCurrentInstId] = useState(null);
 
   useEffect(() => {
-    setCurrentInstId(localStorage.getItem('current_institution_id'));
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      setCurrentInstId(localStorage.getItem('current_institution_id'));
+    });
+    return () => { active = false; };
   }, []);
 
   return (

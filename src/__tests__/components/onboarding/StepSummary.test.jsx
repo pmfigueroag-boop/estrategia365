@@ -4,7 +4,7 @@ import StepSummary from '@/features/onboarding/components/StepSummary';
 
 // Mock ToastContext
 const mockToast = { success: vi.fn(), error: vi.fn(), info: vi.fn(), warning: vi.fn() };
-vi.mock('@/context/ToastContext', () => ({ useToast: () => mockToast }));
+vi.mock('@/features/plan/context/ToastContext', () => ({ useToast: () => mockToast }));
 
 // Mock API
 const mockTwin = {

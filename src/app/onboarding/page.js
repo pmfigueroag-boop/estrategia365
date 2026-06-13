@@ -17,7 +17,7 @@ import StepGovernance from '@/features/onboarding/components/StepGovernance';
 import StepRiskCulture from '@/features/onboarding/components/StepRiskCulture';
 import StepOperations from '@/features/onboarding/components/StepOperations';
 import StepMetrics from '@/features/onboarding/components/StepMetrics';
-import StepDocuments from '@/features/onboarding/components/StepDocuments';
+
 import StepSummary from '@/features/onboarding/components/StepSummary';
 import StepPlan from '@/features/onboarding/components/StepPlan';
 import SaveStatusIndicator from '@/features/onboarding/components/SaveStatusIndicator';
@@ -39,7 +39,7 @@ export default function OnboardingPage() {
   // WCAG: Focus management + live announcements
   const { stepContainerProps, AnnouncerElement } = useAccessibleStep({
     step,
-    totalSteps: 11,
+    totalSteps: 10,
     onPrev: step > 1 ? () => setStep(step - 1) : undefined,
   });
 
@@ -72,7 +72,7 @@ export default function OnboardingPage() {
         tierAccess={TIER_ACCESS}
         institutionId={institutionId}
         onStepClick={(target) => {
-          if (target <= (institutionId ? 11 : step)) {
+          if (target <= (institutionId ? 10 : step)) {
             setStep(target);
             service.syncProgress({ current_step: target });
           }
@@ -90,9 +90,8 @@ export default function OnboardingPage() {
           {step === 6 && <StepErrorBoundary stepName="Riesgo & Cultura" onSkip={() => goToStep(7)}><StepRiskCulture onPrev={() => setStep(5)} onNext={() => goToStep(7)} institutionId={institutionId} knownRisks={entities.knownRisks} setKnownRisks={(v) => updateEntities({ knownRisks: v })} cultureProfile={entities.cultureProfile} setCultureProfile={(v) => updateEntities({ cultureProfile: v })} /></StepErrorBoundary>}
           {step === 7 && <StepErrorBoundary stepName="Operaciones" onSkip={() => goToStep(8)}><StepOperations onPrev={() => setStep(6)} onNext={() => goToStep(8)} institutionId={institutionId} valueChain={entities.valueChain} setValueChain={(v) => updateEntities({ valueChain: v })} dependencies={entities.dependencies} setDependencies={(v) => updateEntities({ dependencies: v })} techSystems={entities.techSystems} setTechSystems={(v) => updateEntities({ techSystems: v })} /></StepErrorBoundary>}
           {step === 8 && <StepErrorBoundary stepName="Métricas" onSkip={() => goToStep(9)}><StepMetrics onPrev={() => setStep(7)} onNext={() => goToStep(9)} institutionId={institutionId} metrics={entities.metrics} setMetrics={(v) => updateEntities({ metrics: v })} sector={methods.getValues().sector} /></StepErrorBoundary>}
-          {step === 9 && <StepErrorBoundary stepName="Documentos" onSkip={() => goToStep(10)}><StepDocuments onPrev={() => setStep(8)} onNext={() => goToStep(10)} institutionId={institutionId} documents={entities.documents} setDocuments={(v) => updateEntities({ documents: v })} /></StepErrorBoundary>}
-          {step === 10 && <StepErrorBoundary stepName="Resumen" onSkip={() => goToStep(11)}><StepSummary onPrev={() => setStep(9)} onNext={() => goToStep(11)} institutionId={institutionId} tier={tier} /></StepErrorBoundary>}
-          {step === 11 && <StepErrorBoundary stepName="Plan"><StepPlan onPrev={() => setStep(10)} onFinish={handleFinish} isSaving={isSaving} /></StepErrorBoundary>}
+          {step === 9 && <StepErrorBoundary stepName="Resumen" onSkip={() => goToStep(10)}><StepSummary onPrev={() => setStep(8)} onNext={() => goToStep(10)} institutionId={institutionId} tier={tier} /></StepErrorBoundary>}
+          {step === 10 && <StepErrorBoundary stepName="Plan"><StepPlan onPrev={() => setStep(9)} onFinish={handleFinish} isSaving={isSaving} /></StepErrorBoundary>}
           </StepTransition>
         </form>
       </FormProvider>

@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import StepPlan from '@/features/onboarding/components/StepPlan';
 
 // Mock the ParadigmContext
-vi.mock('@/context/ParadigmContext', () => ({
+vi.mock('@/features/plan/context/ParadigmContext', () => ({
   useParadigm: () => ({
     paradigms: [
       { id: 'competitive', name: 'Competitiva (Porter / 5 Fuerzas)', short: 'Porter' },

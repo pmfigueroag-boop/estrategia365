@@ -77,7 +77,7 @@ export default function ObjectiveCard({ obj, planId, index, onRefresh, toast }) 
         </div>
         <div style={{textAlign:'right', flexShrink:0}}>
           <span style={{fontSize:'1.3rem', fontWeight:700, color:STATUS_COLORS[status]}}>{obj.progress}%</span>
-          <div style={{fontSize:'0.75rem', color:STATUS_COLORS[status], textTransform:'uppercase'}}>{status.replace('_', ' ')}</div>
+          <div style={{fontSize:'0.75rem', color:STATUS_COLORS[status], textTransform:'uppercase'}}>{(status || '').replace('_', ' ')}</div>
         </div>
       </div>
       <div className="progress-track sm" style={{marginTop:'0.75rem'}}>

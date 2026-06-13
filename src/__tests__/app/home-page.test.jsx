@@ -10,8 +10,8 @@ vi.mock('next/navigation', () => ({
   useRouter: vi.fn(),
 }));
 
-vi.mock('@/context/PlanContext', () => ({
-  usePlanContext: vi.fn(),
+vi.mock('@/features/plan/context/PlanContext', () => ({
+  usePlanContext: vi.fn(() => ({ setPlanId: vi.fn(), setInstitutionId: vi.fn() })),
 }));
 
 vi.mock('@/lib/api', () => ({

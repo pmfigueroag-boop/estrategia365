@@ -114,20 +114,26 @@ export default function StepSummary({ onPrev, onNext, institutionId, tier }) {
   const [expanded, setExpanded] = useState({});
 
   useEffect(() => {
-    if (!institutionId) { setLoading(false); return; }
+    let active = true;
+    if (!institutionId) { 
+      Promise.resolve().then(() => { if (active) setLoading(false); }); 
+      return () => { active = false; };
+    }
     async function load() {
-      setLoading(true);
+      Promise.resolve().then(() => { if (active) setLoading(true); });
       try {
         const [t, m] = await Promise.allSettled([
           api.getDigitalTwin(institutionId),
           api.getMaturityAssessment(institutionId),
         ]);
+        if (!active) return;
         if (t.status === 'fulfilled') setTwin(t.value);
         if (m.status === 'fulfilled') setMaturity(m.value);
       } catch { /* ignore */ }
-      setLoading(false);
+      if (active) setLoading(false);
     }
     load();
+    return () => { active = false; };
   }, [institutionId]);
 
   const handleAssess = async () => {

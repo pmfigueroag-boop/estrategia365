@@ -6,19 +6,19 @@ import { useToast } from '@/features/plan/context/ToastContext';
 import { useAnalysis } from '@/app/analysis/hooks/useAnalysis';
 
 // Mocks
-vi.mock('@/context/PlanContext');
-vi.mock('@/context/ToastContext');
+vi.mock('@/features/plan/context/PlanContext');
+vi.mock('@/features/plan/context/ToastContext');
 vi.mock('@/app/analysis/hooks/useAnalysis');
 vi.mock('@/components/DiagnosticReadiness', () => ({ default: () => <div data-testid="readiness-mock" /> }));
 
 // Mock the Tabs to keep tests fast and focused on the Page orchestrator
-vi.mock('@/components/analysis/tabs/PestelTab', () => ({ default: () => <div data-testid="pestel-tab" /> }));
-vi.mock('@/components/analysis/tabs/PorterTab', () => ({ default: () => <div data-testid="porter-tab" /> }));
-vi.mock('@/components/analysis/tabs/SwotTab', () => ({ default: () => <div data-testid="swot-tab" /> }));
-vi.mock('@/components/analysis/tabs/InstitucionalTab', () => ({ default: () => <div data-testid="inst-tab" /> }));
-vi.mock('@/components/analysis/VrioTabWrapper', () => ({ default: () => <div data-testid="vrio-tab" /> }));
-vi.mock('@/components/analysis/BcgTabWrapper', () => ({ default: () => <div data-testid="bcg-tab" /> }));
-vi.mock('@/components/analysis/BlueOceanTabWrapper', () => ({ default: () => <div data-testid="ocean-tab" /> }));
+vi.mock('@/features/analysis/components/tabs/PestelTab', () => ({ default: () => <div data-testid="pestel-tab" /> }));
+vi.mock('@/features/analysis/components/tabs/PorterTab', () => ({ default: () => <div data-testid="porter-tab" /> }));
+vi.mock('@/features/analysis/components/tabs/SwotTab', () => ({ default: () => <div data-testid="swot-tab" /> }));
+vi.mock('@/features/analysis/components/tabs/InstitucionalTab', () => ({ default: () => <div data-testid="inst-tab" /> }));
+vi.mock('@/features/analysis/components/tabs/VrioTabWrapper', () => ({ default: () => <div data-testid="vrio-tab" /> }));
+vi.mock('@/features/analysis/components/tabs/BcgTabWrapper', () => ({ default: () => <div data-testid="bcg-tab" /> }));
+vi.mock('@/features/analysis/components/tabs/BlueOceanTabWrapper', () => ({ default: () => <div data-testid="ocean-tab" /> }));
 
 describe('AnalysisPage Orchestrator', () => {
   const mockToast = { success: vi.fn(), error: vi.fn(), warning: vi.fn() };

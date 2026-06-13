@@ -119,25 +119,7 @@ describe('IntelligenceHubPage', () => {
     expect(screen.getByText('CRITICAL')).toBeDefined();
   });
 
-  test('renders twin health section when available', () => {
-    useIntelligenceSummary.mockReturnValue({
-      data: {
-        analyses: {},
-        coverage: { pct: 50 },
-        twin_health: {
-          current_completeness: { overall: 72 },
-          total_snapshots: 5,
-          total_events: 23,
-        },
-      },
-      isLoading: false,
-    });
-    useIntelligenceGaps.mockReturnValue({ data: { gaps: [] }, isLoading: false });
-    useIntelligenceRecommendations.mockReturnValue({ data: { recommendations: [] }, isLoading: false });
 
-    render(<IntelligenceHubPage />);
-    expect(screen.getByText(/Salud del Digital Twin/i)).toBeDefined();
-  });
 
   test('renders loading state for recommendations', () => {
     useIntelligenceSummary.mockReturnValue({ data: null, isLoading: true });

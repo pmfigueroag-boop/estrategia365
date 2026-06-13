@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest';
 import StepStakeholders from '@/features/onboarding/components/StepStakeholders';
 
 // Mock the toast and api modules
-vi.mock('@/context/ToastContext', () => ({
+vi.mock('@/features/plan/context/ToastContext', () => ({
   useToast: () => ({ success: vi.fn(), error: vi.fn(), warning: vi.fn(), info: vi.fn() }),
 }));
 

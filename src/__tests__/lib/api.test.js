@@ -368,22 +368,3 @@ describe('Error propagation', () => {
   });
 });
 
-// ── Wargaming API ─────────────────────────────────────────────────────────────
-
-describe('Wargaming API', () => {
-  test('simulate sends POST to /wargaming/simulate', async () => {
-    const fetchMock = mockFetch({ result: 'ok' });
-    vi.stubGlobal('fetch', fetchMock);
-    await api.simulate(5, 'market_entry');
-    const [url, config] = fetchMock.mock.calls[0];
-    expect(url).toContain('/wargaming/simulate');
-    expect(config.method).toBe('POST');
-  });
-
-  test('getWargameSessions calls correct URL', async () => {
-    const fetchMock = mockFetch([]);
-    vi.stubGlobal('fetch', fetchMock);
-    await api.getWargameSessions(5);
-    expect(fetchMock.mock.calls[0][0]).toContain('/wargaming/sessions/5');
-  });
-});

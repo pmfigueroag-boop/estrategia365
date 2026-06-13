@@ -18,9 +18,8 @@ const STEPS = [
   { id: 6, label: 'Riesgo', icon: '🛡️' },
   { id: 7, label: 'Operaciones', icon: '🔗' },
   { id: 8, label: 'Métricas', icon: '📊' },
-  { id: 9, label: 'Documentos', icon: '📄' },
-  { id: 10, label: 'Resumen', icon: '🔮' },
-  { id: 11, label: 'Plan', icon: '🗂️' },
+  { id: 9, label: 'Resumen', icon: '🔮' },
+  { id: 10, label: 'Plan', icon: '🗂️' },
 ];
 
 export default function OnboardingStepper({
