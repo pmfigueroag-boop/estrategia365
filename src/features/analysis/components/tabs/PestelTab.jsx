@@ -1,5 +1,5 @@
 import React from 'react';
-import FallbackBadge, { FallbackItemTag } from '@/components/FallbackBadge';
+import FallbackBadge, { FallbackItemTag } from '@/components/ui/FallbackBadge';
 import ManualPestelForm from '@/features/analysis/components/ManualPestelForm';
 import { 
   PestelRadar, PestelHeatMap, PestelPriorityMatrix, PestelExecutiveSummary, 
@@ -7,7 +7,7 @@ import {
   PestelEarlyWarnings, PestelCorrelationGraph, PestelExposureDashboard, 
   PestelScenarioMatrix, PestelImpactCascade, PestelConfidenceOverlay, PestelForesightCockpit 
 } from '@/features/charts/components';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const SEVERITY_COLORS = { high: 'var(--danger-color)', medium: 'var(--warning-color)', low: 'var(--success-color)' };
 const FACTOR_LABELS = { P: 'Político', E: 'Económico', S: 'Social', T: 'Tecnológico', E2: 'Ecológico', L: 'Legal' };

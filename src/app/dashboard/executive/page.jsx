@@ -14,8 +14,8 @@ import {
   usePulseTrend,
   useDoctrineCompliance,
   useMutation,
-} from '@/lib/swr-hooks';
-import api from '@/lib/api';
+} from '@/features/shared/hooks/swr-hooks';
+import api from '@/core/infrastructure/api';
 
 const ROLES = [
   { key: 'ceo', label: 'CEO', icon: '👁️', desc: 'Salud Estratégica' },

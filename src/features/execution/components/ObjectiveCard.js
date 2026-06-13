@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 /**
  * ObjectiveCard — OKR objective with expandable Key Results

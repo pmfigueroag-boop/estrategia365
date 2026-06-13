@@ -6,7 +6,7 @@ vi.mock('@/features/plan/context/ToastContext', () => ({
   useToast: () => ({ success: vi.fn(), error: vi.fn(), warning: vi.fn(), info: vi.fn() }),
 }));
 
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     addKnownRisk: vi.fn().mockResolvedValue({ id: 1, risk: 'Test', category: 'strategic' }),
     deleteKnownRisk: vi.fn().mockResolvedValue({}),

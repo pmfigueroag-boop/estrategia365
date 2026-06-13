@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');

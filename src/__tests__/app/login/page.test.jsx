@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import LoginPage from '@/app/login/page';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 import { useRouter } from 'next/navigation';
 
 // Mock Next.js router
@@ -10,7 +10,7 @@ vi.mock('next/navigation', () => ({
 }));
 
 // Mock the API library
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     login: vi.fn(),
     getSSOProviders: vi.fn(() => Promise.resolve([])),

@@ -1,5 +1,5 @@
 'use client';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 /**
  * BscPerspectives — BSC 4-Perspective Grid with KPI sliders

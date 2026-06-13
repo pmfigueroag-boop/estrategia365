@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 /**
  * BlueOceanCanvas — Kim & Mauborgne (2005) Strategy Canvas + ERRC Grid

@@ -15,7 +15,7 @@
  */
 "use client";
 import { useState, useEffect } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const MODULE_META = {
   porter:    { label: 'Porter 5F',    icon: '⚔️', color: '#6366f1', desc: 'Intensidad competitiva' },

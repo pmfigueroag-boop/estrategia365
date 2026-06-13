@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 import { useToast } from '@/features/plan/context/ToastContext';
 
 const STAKEHOLDER_TYPES = [

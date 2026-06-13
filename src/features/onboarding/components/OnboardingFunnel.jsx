@@ -8,7 +8,7 @@
  * Data source: analytics events collected by useOnboardingAnalytics
  */
 import { useState, useEffect } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const STEP_LABELS = [
   'Identidad', 'Misión', 'Contexto', 'Stakeholders', 'Gobernanza',

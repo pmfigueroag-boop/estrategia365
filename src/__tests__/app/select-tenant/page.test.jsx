@@ -1,14 +1,14 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import SelectTenantPage from '@/app/select-tenant/page';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 import { useRouter } from 'next/navigation';
 
 vi.mock('next/navigation', () => ({
   useRouter: vi.fn(),
 }));
 
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     getMyTenants: vi.fn(),
     logout: vi.fn(),

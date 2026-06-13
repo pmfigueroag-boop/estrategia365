@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useMemo } from 'react';
 import { useToast } from '@/features/plan/context/ToastContext';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const DIMENSION_LABELS = {
   identity: '🏛️ Identidad',

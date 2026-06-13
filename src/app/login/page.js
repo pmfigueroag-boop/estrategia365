@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 export default function LoginPage() {
   const router = useRouter();

@@ -4,7 +4,7 @@
  * Extracts all API interactions from page.js into a testable,
  * reusable service. Zero UI awareness.
  */
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 // ── Constants ────────────────────────────────────────────
 const FORM_DEFAULTS = {

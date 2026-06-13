@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const NAV_DOMAINS = [
   {

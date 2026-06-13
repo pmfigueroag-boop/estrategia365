@@ -2,8 +2,8 @@
 import { useToast } from '@/features/plan/context/ToastContext';
 import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState } from 'react';
-import { useDashboard } from '@/lib/swr-hooks';
-import api from '@/lib/api';
+import { useDashboard } from '@/features/shared/hooks/swr-hooks';
+import api from '@/core/infrastructure/api';
 import { ObjectivesPie, PestelSeverityBar } from '@/features/charts/components';
 
 function MonteCarloPanel({ planId }) {

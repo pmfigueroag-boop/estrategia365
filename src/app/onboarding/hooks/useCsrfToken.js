@@ -10,7 +10,7 @@
  * Forms should submit the token as X-CSRF-Token header or hidden field.
  */
 import { useState, useEffect, useCallback } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 // Session-level cache to avoid refetching on every component mount
 let cachedToken = null;

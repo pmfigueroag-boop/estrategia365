@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useToast } from '@/features/plan/context/ToastContext';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const HORIZON_OPTIONS = [
   { value: 12, label: '1 año', desc: 'Corto plazo — táctico' },

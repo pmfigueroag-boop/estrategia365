@@ -1,7 +1,7 @@
 "use client";
 import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useToast } from '@/features/plan/context/ToastContext';
-import DiagnosticReadiness from '@/components/DiagnosticReadiness';
+import DiagnosticReadiness from '@/components/layout/DiagnosticReadiness';
 
 import PestelTab from '@/features/analysis/components/tabs/PestelTab';
 import PorterTab from '@/features/analysis/components/tabs/PorterTab';

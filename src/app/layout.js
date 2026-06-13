@@ -1,14 +1,14 @@
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import BottomNav from "@/components/BottomNav";
+import Header from "@/components/navigation/Header";
+import BottomNav from "@/components/navigation/BottomNav";
 import { ParadigmProvider } from '@/features/plan/context/ParadigmContext';
 import { ToastProvider } from '@/features/plan/context/ToastContext';
 import { PlanProvider } from '@/features/plan/context/PlanContext';
-import ErrorBoundary from "@/components/ErrorBoundary";
-import ClientShell from "@/components/ClientShell";
+import ErrorBoundary from "@/components/layout/ErrorBoundary";
+import ClientShell from "@/components/layout/ClientShell";
 import { Suspense } from "react";
-import { PageSkeleton } from "@/components/SkeletonLoader";
+import { PageSkeleton } from "@/components/ui/SkeletonLoader";
 
 const inter = Inter({
   variable: "--font-inter",

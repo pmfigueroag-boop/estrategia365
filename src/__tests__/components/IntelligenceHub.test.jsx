@@ -8,7 +8,7 @@ import { render, screen } from '@testing-library/react';
 import IntelligenceHubPage from '@/app/intelligence/page';
 
 // Mock hooks
-vi.mock('@/lib/swr-hooks', () => ({
+vi.mock('@/features/shared/hooks/swr-hooks', () => ({
   useIntelligenceSummary: vi.fn(),
   useIntelligenceGaps: vi.fn(),
   useIntelligenceRecommendations: vi.fn(),
@@ -18,7 +18,7 @@ import {
   useIntelligenceSummary,
   useIntelligenceGaps,
   useIntelligenceRecommendations,
-} from '@/lib/swr-hooks';
+} from '@/features/shared/hooks/swr-hooks';
 
 describe('IntelligenceHubPage', () => {
   beforeEach(() => {

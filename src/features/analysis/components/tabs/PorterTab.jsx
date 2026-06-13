@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import FallbackBadge from '@/components/FallbackBadge';
+import FallbackBadge from '@/components/ui/FallbackBadge';
 import PorterForces from '@/features/analysis/components/PorterForces';
 
 const PorterRadar = dynamic(() => import('@/features/charts/components/PorterRadar'), { ssr: false });

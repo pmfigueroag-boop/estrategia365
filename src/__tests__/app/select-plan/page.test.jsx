@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import SelectPlanPage from '@/app/select-plan/page';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 import { useRouter } from 'next/navigation';
 
 // Mock dependencias
@@ -9,7 +9,7 @@ vi.mock('next/navigation', () => ({
   useRouter: vi.fn(),
 }));
 
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     getTenantPlans: vi.fn(),
   }

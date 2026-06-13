@@ -4,14 +4,14 @@ import { vi } from 'vitest';
 import DashboardPage from '@/app/dashboard/page';
 import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useToast } from '@/features/plan/context/ToastContext';
-import * as swrHooks from '@/lib/swr-hooks';
-import api from '@/lib/api';
+import * as swrHooks from '@/features/shared/hooks/swr-hooks';
+import api from '@/core/infrastructure/api';
 
 // Mocks
 vi.mock('@/features/plan/context/PlanContext');
 vi.mock('@/features/plan/context/ToastContext');
-vi.mock('@/lib/swr-hooks');
-vi.mock('@/lib/api', () => ({
+vi.mock('@/features/shared/hooks/swr-hooks');
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     runMonteCarlo: vi.fn(),
     runBayesianUpdate: vi.fn(),

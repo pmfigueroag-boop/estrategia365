@@ -1,9 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 import { useToast } from '@/features/plan/context/ToastContext';
 import { usePlanContext } from '@/features/plan/context/PlanContext';
-import { useKernel, useCausal, usePulses, useGraph } from '@/lib/swr-hooks';
+import { useKernel, useCausal, usePulses, useGraph } from '@/features/shared/hooks/swr-hooks';
 import {
   KernelDiagnosis,
   DecisionTable,

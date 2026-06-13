@@ -4,12 +4,12 @@ import { vi } from 'vitest';
 import FormulationPage from '@/app/formulation/page';
 import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useToast } from '@/features/plan/context/ToastContext';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 // Mocks
 vi.mock('@/features/plan/context/PlanContext');
 vi.mock('@/features/plan/context/ToastContext');
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     getPlans: vi.fn(),
     updatePlan: vi.fn(),
@@ -19,7 +19,7 @@ vi.mock('@/lib/api', () => ({
 }));
 
 // Mock DiagnosticReadiness component to avoid deeper rendering issues
-vi.mock('@/components/DiagnosticReadiness', () => ({
+vi.mock('@/components/layout/DiagnosticReadiness', () => ({
   default: () => <div data-testid="readiness-mock" />
 }));
 

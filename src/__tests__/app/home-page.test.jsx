@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Home from '@/app/page';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useRouter } from 'next/navigation';
 
@@ -14,7 +14,7 @@ vi.mock('@/features/plan/context/PlanContext', () => ({
   usePlanContext: vi.fn(() => ({ setPlanId: vi.fn(), setInstitutionId: vi.fn() })),
 }));
 
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     getWorkspaceSummary: vi.fn(),
     deletePlan: vi.fn(),

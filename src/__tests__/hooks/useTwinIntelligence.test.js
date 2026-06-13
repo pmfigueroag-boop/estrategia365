@@ -11,7 +11,7 @@ vi.mock('swr', () => ({
   default: (...args) => mockUseSWR(...args),
 }));
 
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     getIntelligenceSummary: vi.fn(),
     getIntelligenceFreshness: vi.fn(),
@@ -25,7 +25,7 @@ import {
   useIntelligenceFreshness,
   useIntelligenceGaps,
   useIntelligenceRecommendations,
-} from '@/lib/swr-hooks';
+} from '@/features/shared/hooks/swr-hooks';
 
 describe('Intelligence Hub SWR Hooks', () => {
   beforeEach(() => {

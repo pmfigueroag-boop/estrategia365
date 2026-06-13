@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useToast } from '@/features/plan/context/ToastContext';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const PORTER_PRIMARY = [
   { key: 'inbound_logistics', label: 'Logística de Entrada', icon: '📦', desc: 'Recepción, almacenamiento y distribución interna de insumos' },

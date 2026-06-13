@@ -22,7 +22,7 @@ vi.mock('swr', () => ({
 }));
 
 // Mock the API module
-vi.mock('../../lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   __esModule: true,
   default: {
     getPestel: vi.fn(),
@@ -38,7 +38,7 @@ vi.mock('../../lib/api', () => ({
 
 describe('SWR Hooks', () => {
   it('usePestel returns loading state initially', async () => {
-    const { usePestel } = await import('../../lib/swr-hooks');
+    const { usePestel } = await import('../../features/shared/hooks/swr-hooks');
     const { result } = renderHook(() => usePestel('1'));
     expect(result.current.isLoading).toBe(true);
     expect(result.current.data).toBeUndefined();
@@ -46,32 +46,32 @@ describe('SWR Hooks', () => {
   });
 
   it('usePorter returns loading state initially', async () => {
-    const { usePorter } = await import('../../lib/swr-hooks');
+    const { usePorter } = await import('../../features/shared/hooks/swr-hooks');
     const { result } = renderHook(() => usePorter('1'));
     expect(result.current.isLoading).toBe(true);
   });
 
   it('useSwot returns loading state initially', async () => {
-    const { useSwot } = await import('../../lib/swr-hooks');
+    const { useSwot } = await import('../../features/shared/hooks/swr-hooks');
     const { result } = renderHook(() => useSwot('1'));
     expect(result.current.isLoading).toBe(true);
   });
 
   it('useKernel returns loading state initially', async () => {
-    const { useKernel } = await import('../../lib/swr-hooks');
+    const { useKernel } = await import('../../features/shared/hooks/swr-hooks');
     const { result } = renderHook(() => useKernel('1'));
     expect(result.current.isLoading).toBe(true);
   });
 
   it('hook returns null key when id is null (no fetch)', async () => {
-    const { usePestel } = await import('../../lib/swr-hooks');
+    const { usePestel } = await import('../../features/shared/hooks/swr-hooks');
     const { result } = renderHook(() => usePestel(null));
     // When key is null, SWR should not fetch
     expect(result.current).toBeDefined();
   });
 
   it('useMutation tracks submitting state', async () => {
-    const { useMutation } = await import('../../lib/swr-hooks');
+    const { useMutation } = await import('../../features/shared/hooks/swr-hooks');
     const mockAction = vi.fn().mockResolvedValue({ ok: true });
     const { result } = renderHook(() => useMutation(mockAction));
 
@@ -81,7 +81,7 @@ describe('SWR Hooks', () => {
   });
 
   it('useMutation handles successful action', async () => {
-    const { useMutation } = await import('../../lib/swr-hooks');
+    const { useMutation } = await import('../../features/shared/hooks/swr-hooks');
     const mockAction = vi.fn().mockResolvedValue({ id: 1, status: 'ok' });
     const { result } = renderHook(() => useMutation(mockAction));
 
@@ -97,7 +97,7 @@ describe('SWR Hooks', () => {
   });
 
   it('useMutation captures errors', async () => {
-    const { useMutation } = await import('../../lib/swr-hooks');
+    const { useMutation } = await import('../../features/shared/hooks/swr-hooks');
     const mockError = new Error('Network error');
     const mockAction = vi.fn().mockRejectedValue(mockError);
     const { result } = renderHook(() => useMutation(mockAction));

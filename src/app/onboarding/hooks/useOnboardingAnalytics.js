@@ -12,7 +12,7 @@
  * analytics endpoint. Falls back to console.log in dev.
  */
 import { useRef, useCallback } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const EVENT_TYPES = {
   STARTED: 'onboarding_started',

@@ -8,7 +8,7 @@
  * - Recovery detection on mount (resume previous session)
  */
 import { useState, useEffect, useRef, useCallback } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const AUTOSAVE_INTERVAL_MS = 30_000; // 30 seconds
 const DEBOUNCE_MS = 2_000; // 2s after last change

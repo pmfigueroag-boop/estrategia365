@@ -9,7 +9,7 @@ import { useAnalysis } from '@/app/analysis/hooks/useAnalysis';
 vi.mock('@/features/plan/context/PlanContext');
 vi.mock('@/features/plan/context/ToastContext');
 vi.mock('@/app/analysis/hooks/useAnalysis');
-vi.mock('@/components/DiagnosticReadiness', () => ({ default: () => <div data-testid="readiness-mock" /> }));
+vi.mock('@/components/layout/DiagnosticReadiness', () => ({ default: () => <div data-testid="readiness-mock" /> }));
 
 // Mock the Tabs to keep tests fast and focused on the Page orchestrator
 vi.mock('@/features/analysis/components/tabs/PestelTab', () => ({ default: () => <div data-testid="pestel-tab" /> }));

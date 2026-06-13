@@ -17,7 +17,7 @@ import {
   useIntelligenceSummary,
   useIntelligenceGaps,
   useIntelligenceRecommendations,
-} from '@/lib/swr-hooks';
+} from '@/features/shared/hooks/swr-hooks';
 
 const ANALYSIS_LABELS = {
   pestel: { name: 'PESTEL', icon: '🌍', desc: 'Macro-entorno' },

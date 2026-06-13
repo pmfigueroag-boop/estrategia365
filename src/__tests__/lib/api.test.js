@@ -7,7 +7,7 @@
  */
 
 import { beforeEach, afterEach, describe, test, expect, vi } from 'vitest';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 

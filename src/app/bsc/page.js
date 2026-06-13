@@ -2,8 +2,8 @@
 import { useToast } from '@/features/plan/context/ToastContext';
 import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState } from 'react';
-import { useBsc, useProgress } from '@/lib/swr-hooks';
-import api from '@/lib/api';
+import { useBsc, useProgress } from '@/features/shared/hooks/swr-hooks';
+import api from '@/core/infrastructure/api';
 import BscPerspectives from '@/features/execution/components/BscPerspectives';
 import StrategyMap from '@/features/execution/components/StrategyMap';
 import BscForm from '@/features/execution/components/BscForm';

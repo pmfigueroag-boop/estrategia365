@@ -7,7 +7,7 @@ vi.mock('@/features/plan/context/ToastContext', () => ({
   useToast: () => ({ success: vi.fn(), error: vi.fn(), warning: vi.fn(), info: vi.fn() }),
 }));
 
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     getStakeholders: vi.fn().mockResolvedValue([]),
     addStakeholder: vi.fn().mockResolvedValue({ id: 1, name: 'Test', type: 'client', influence: 'medium', interest: 'medium' }),

@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import IntelligenceHubPage from '@/app/intelligence/page';
-import { useIntelligenceSummary, useIntelligenceGaps, useIntelligenceRecommendations } from '@/lib/swr-hooks';
+import { useIntelligenceSummary, useIntelligenceGaps, useIntelligenceRecommendations } from '@/features/shared/hooks/swr-hooks';
 
 // Mock the SWR hooks
-vi.mock('@/lib/swr-hooks', () => ({
+vi.mock('@/features/shared/hooks/swr-hooks', () => ({
   useIntelligenceSummary: vi.fn(),
   useIntelligenceGaps: vi.fn(),
   useIntelligenceRecommendations: vi.fn(),

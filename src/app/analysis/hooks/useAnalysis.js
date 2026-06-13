@@ -2,8 +2,8 @@ import { useState, useCallback } from 'react';
 import { 
   usePestel, usePestelDeepAnalysis, usePestelDrift, usePestelEarlyWarnings, 
   usePorter, usePorterDeepAnalysis, useSwot, useTows 
-} from '@/lib/swr-hooks';
-import api from '@/lib/api';
+} from '@/features/shared/hooks/swr-hooks';
+import api from '@/core/infrastructure/api';
 
 export function useAnalysis(planId, toast) {
   const [activeTab, setActiveTab] = useState('institucional');

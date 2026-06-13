@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 export default function DecisionApprovalModal({ decision, onClose, onSuccess }) {
   const [note, setNote] = useState(decision?.human_validation_note || '');

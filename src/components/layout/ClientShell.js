@@ -1,6 +1,6 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import AuthGuard from '@/components/AuthGuard';
+import AuthGuard from '@/components/layout/AuthGuard';
 
 const PUBLIC_ROUTES = ['/login', '/register', '/forgot-password', '/reset-password'];
 

@@ -1,10 +1,10 @@
 import { renderHook, act } from '@testing-library/react';
 import { useAnalysis } from '@/app/analysis/hooks/useAnalysis';
-import api from '@/lib/api';
-import * as swrHooks from '@/lib/swr-hooks';
+import api from '@/core/infrastructure/api';
+import * as swrHooks from '@/features/shared/hooks/swr-hooks';
 
-vi.mock('@/lib/api');
-vi.mock('@/lib/swr-hooks', () => ({
+vi.mock('@/core/infrastructure/api');
+vi.mock('@/features/shared/hooks/swr-hooks', () => ({
   usePestel: vi.fn(),
   usePestelDeepAnalysis: vi.fn(),
   usePestelDrift: vi.fn(),

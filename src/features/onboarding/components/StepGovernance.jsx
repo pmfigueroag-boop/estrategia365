@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useToast } from '@/features/plan/context/ToastContext';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const AUTHORITY_STRUCTURES = [
   { value: 'centralized', label: '🏛️ Centralizado', desc: 'Decisiones concentradas en la cúpula' },

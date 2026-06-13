@@ -2,8 +2,8 @@
 import { useToast } from '@/features/plan/context/ToastContext';
 import { usePlanContext } from '@/features/plan/context/PlanContext';
 import { useState } from 'react';
-import { useProgress } from '@/lib/swr-hooks';
-import api from '@/lib/api';
+import { useProgress } from '@/features/shared/hooks/swr-hooks';
+import api from '@/core/infrastructure/api';
 import ObjectiveCard from '@/features/execution/components/ObjectiveCard';
 import OkrForm from '@/features/execution/components/OkrForm';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import FallbackBadge from '@/components/FallbackBadge';
+import FallbackBadge from '@/components/ui/FallbackBadge';
 import FODAAnalysis from '@/features/analysis/components/FODAAnalysis';
 
 const SwotTowsFlow = dynamic(() => import('@/features/charts/components/SwotTowsFlow'), { ssr: false });

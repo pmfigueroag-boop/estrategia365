@@ -1,9 +1,9 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import onboardingService from '@/app/onboarding/services/onboardingService';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     getOnboardingProgress: vi.fn(),
     getInstitution: vi.fn(),

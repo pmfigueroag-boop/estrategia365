@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useToast } from '@/features/plan/context/ToastContext';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const RISK_CATEGORIES = [
   { value: 'strategic', label: '🎯 Estratégico' },

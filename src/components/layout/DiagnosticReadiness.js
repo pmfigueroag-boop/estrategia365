@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 const MODULE_ICONS = {
   pestel: '🌍', porter: '⚔️', swot: '🎯', tows: '🔀', vrio: '🔑', bcg: '📊', blue_ocean: '🌊',

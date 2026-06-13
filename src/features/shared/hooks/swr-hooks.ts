@@ -8,7 +8,7 @@
  */
 import useSWR from 'swr';
 import { useState } from 'react';
-import api from './api';
+import api from "@/core/infrastructure/api";
 
 // ── SWR Configuration ──────────────────────────────────────────
 const DEFAULT_OPTIONS = {

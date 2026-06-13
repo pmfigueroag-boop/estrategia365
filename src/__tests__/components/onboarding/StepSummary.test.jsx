@@ -33,7 +33,7 @@ const mockMaturity = {
   assessed_at: '2026-06-06T12:00:00',
 };
 
-vi.mock('@/lib/api', () => ({
+vi.mock('@/core/infrastructure/api', () => ({
   default: {
     getDigitalTwin: vi.fn(),
     getMaturityAssessment: vi.fn(),
@@ -41,7 +41,7 @@ vi.mock('@/lib/api', () => ({
   },
 }));
 
-import api from '@/lib/api';
+import api from '@/core/infrastructure/api';
 
 describe('StepSummary', () => {
   const onPrev = vi.fn();
