@@ -1,0 +1,88 @@
+# ============================================================
+# Estrategia 365 Frontend — CI Pipeline
+# ============================================================
+# Lint + type-check + unit tests + build verification on every PR
+
+name: CI — Frontend
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-frontend-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "20"
+  NEXT_PUBLIC_API_URL: "http://localhost:8000"  # Mocked in tests
+
+jobs:
+  # ── Lint ──────────────────────────────────────────────────
+  lint:
+    name: 🔍 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: ESLint
+        run: npm run lint
+
+  # ── Unit Tests ────────────────────────────────────────────
+  test:
+    name: 🧪 Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run tests with coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage
+          path: coverage/
+
+  # ── Build verification ────────────────────────────────────
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build Next.js
+        env:
+          NEXT_PUBLIC_API_URL: https://estrategia-365-api-240909983026.us-east1.run.app
+        run: npm run build
+
+      - name: Verify standalone output
+        run: |
+          test -f .next/standalone/server.js || (echo "❌ standalone/server.js missing" && exit 1)
+          echo "✅ Standalone build verified"

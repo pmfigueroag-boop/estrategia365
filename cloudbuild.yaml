@@ -1,0 +1,56 @@
+steps:
+  # Install Dependencies
+  - name: 'node:20'
+    id: 'npm-ci'
+    entrypoint: 'npm'
+    args: ['ci']
+
+  # Run Linter
+  - name: 'node:20'
+    id: 'npm-lint'
+    entrypoint: 'npm'
+    args: ['run', 'lint']
+
+  # Run Tests
+  - name: 'node:20'
+    id: 'npm-test'
+    entrypoint: 'npm'
+    args: ['run', 'test']
+
+  # Build Frontend Docker Image
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'build-frontend'
+    args: 
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/${PROJECT_ID}/estrategia365/frontend:${BUILD_ID}'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/${PROJECT_ID}/estrategia365/frontend:latest'
+      - '.'
+    waitFor: ['npm-test']
+
+  # Push Frontend Image
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'push-frontend'
+    args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/estrategia365/frontend:${BUILD_ID}']
+    waitFor: ['build-frontend']
+
+  # Deploy Frontend to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: 'deploy-frontend'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'estrategia365-frontend-prod'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/${PROJECT_ID}/estrategia365/frontend:${BUILD_ID}'
+      - '--region'
+      - 'us-central1'
+
+images:
+  - 'us-central1-docker.pkg.dev/${PROJECT_ID}/estrategia365/frontend:${BUILD_ID}'
+  - 'us-central1-docker.pkg.dev/${PROJECT_ID}/estrategia365/frontend:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

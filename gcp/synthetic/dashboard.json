@@ -1,0 +1,80 @@
+{
+  "displayName": "Estrategia 365 - Synthetic Monitoring",
+  "gridLayout": {
+    "columns": "2",
+    "widgets": [
+      {
+        "title": "Login Success Rate",
+        "scorecard": {
+          "timeSeriesQuery": {
+            "timeSeriesFilter": {
+              "filter": "metric.type=\"custom.googleapis.com/synthetic/login/success\" resource.type=\"global\"",
+              "aggregation": {
+                "perSeriesAligner": "ALIGN_MEAN",
+                "alignmentPeriod": "300s"
+              }
+            }
+          },
+          "gaugeView": {
+            "upperBound": 1,
+            "lowerBound": 0
+          }
+        }
+      },
+      {
+        "title": "Login Latency (ms)",
+        "xyChart": {
+          "dataSets": [
+            {
+              "timeSeriesQuery": {
+                "timeSeriesFilter": {
+                  "filter": "metric.type=\"custom.googleapis.com/synthetic/login/latency\" resource.type=\"global\"",
+                  "aggregation": {
+                    "perSeriesAligner": "ALIGN_MEAN",
+                    "alignmentPeriod": "300s"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "Plan Creation Success Rate",
+        "scorecard": {
+          "timeSeriesQuery": {
+            "timeSeriesFilter": {
+              "filter": "metric.type=\"custom.googleapis.com/synthetic/plan/success\" resource.type=\"global\"",
+              "aggregation": {
+                "perSeriesAligner": "ALIGN_MEAN",
+                "alignmentPeriod": "300s"
+              }
+            }
+          },
+          "gaugeView": {
+            "upperBound": 1,
+            "lowerBound": 0
+          }
+        }
+      },
+      {
+        "title": "Doctrinal Gate Blocks",
+        "xyChart": {
+          "dataSets": [
+            {
+              "timeSeriesQuery": {
+                "timeSeriesFilter": {
+                  "filter": "metric.type=\"custom.googleapis.com/synthetic/doctrinal/success\" resource.type=\"global\"",
+                  "aggregation": {
+                    "perSeriesAligner": "ALIGN_MEAN",
+                    "alignmentPeriod": "300s"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

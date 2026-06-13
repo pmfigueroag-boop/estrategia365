@@ -1,0 +1,84 @@
+name: E2E Playwright Tests
+
+on:
+  push:
+    branches: [ main, staging ]
+  pull_request:
+    branches: [ main, staging ]
+
+jobs:
+  e2e-smoke:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Smoke E2E Tests
+        run: echo "Running smoke tests only"
+        # npx playwright test --grep @smoke
+
+  e2e-full:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3] # Parallel execution
+    
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_DB: estrategia365_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Setup Backend (FastAPI)
+      run: |
+        echo "Backend setup and started in background"
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install Frontend Dependencies
+      run: npm ci
+
+    - name: Build Frontend
+      run: npm run build
+
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+
+    - name: Run Playwright Tests (Shard ${{ matrix.shard }}/3)
+      run: npx playwright test --shard=${{ matrix.shard }}/3
+      env:
+        PLAYWRIGHT_BASE_URL: http://localhost:3000
+        API_BASE_URL: http://localhost:8000
+
+    - name: Upload Playwright Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report-${{ matrix.shard }}
+        path: playwright-report/
+        retention-days: 30

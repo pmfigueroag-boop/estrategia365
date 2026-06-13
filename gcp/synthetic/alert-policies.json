@@ -1,0 +1,21 @@
+{
+  "displayName": "Synthetic Login Failure (3 times)",
+  "combiner": "OR",
+  "conditions": [
+    {
+      "displayName": "Login Success Rate == 0 for 15 minutes",
+      "conditionThreshold": {
+        "filter": "metric.type=\"custom.googleapis.com/synthetic/login/success\" resource.type=\"global\"",
+        "comparison": "COMPARISON_EQ",
+        "thresholdValue": 0,
+        "duration": "900s",
+        "aggregations": [
+          {
+            "alignmentPeriod": "300s",
+            "perSeriesAligner": "ALIGN_MEAN"
+          }
+        ]
+      }
+    }
+  ]
+}

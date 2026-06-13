@@ -1,0 +1,18 @@
+# Base image with Node and Playwright dependencies
+FROM mcr.microsoft.com/playwright:v1.44.0-jammy
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies including the GCP Monitoring client
+RUN npm install
+RUN npm install @google-cloud/monitoring
+
+# Copy application files (we only strictly need e2e/ and playwright.config.ts)
+COPY . .
+
+# Run playwright only on files tagged with @synthetic
+CMD ["npx", "playwright", "test", "--grep", "@synthetic", "--project=chromium"]

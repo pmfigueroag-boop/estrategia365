@@ -1,0 +1,51 @@
+# === Dependencies ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Next.js build output ===
+.next/
+out/
+build/
+
+# === Testing ===
+coverage/
+.playwright/
+test-results/
+playwright-report/
+
+# === Storybook ===
+storybook-static/
+
+# === Dev environment ===
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# === OS & IDE ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === Git ===
+.git/
+.gitignore
+.gitattributes
+
+# === CI/CD ===
+.github/
+
+# === Docs ===
+*.md
+!README.md
+
+# === Config files not needed in image ===
+playwright.config.ts
+vitest.config.js
+eslint.config.mjs
+.storybook/
+e2e/
