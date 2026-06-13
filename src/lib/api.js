@@ -222,6 +222,7 @@ const api = {
   refreshToken: (token) => request('/auth/refresh', { method: 'POST', body: JSON.stringify({ refresh_token: token }) }),
   getUsers: () => request('/auth/users'),
   getMyTenants: () => request('/auth/me/tenants'),
+  createTenant: (name) => request('/tenant', { method: 'POST', body: JSON.stringify({ name }) }),
   switchTenant: async (tenantId) => {
     const data = await request('/auth/switch-tenant', { method: 'POST', body: JSON.stringify({ tenant_id: tenantId }) });
     if ((data ).access_token) {

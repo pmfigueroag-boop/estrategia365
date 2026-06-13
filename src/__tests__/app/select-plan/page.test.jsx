@@ -44,29 +44,15 @@ describe('SelectPlanPage', () => {
     // Espera a que se quite el loading
     await waitFor(() => {
       expect(screen.queryByText('Cargando planes estratégicos...')).not.toBeInTheDocument();
+      expect(screen.getByText('Sin planes estratégicos')).toBeInTheDocument();
+      expect(screen.getByText(/No hay planes estratégicos disponibles en esta organización/i)).toBeInTheDocument();
     });
     
-    expect(screen.getByText('No hay planes estratégicos disponibles en este tenant.')).toBeInTheDocument();
-    
-    const continueBtn = screen.getByText('Continuar al Dashboard');
+    const continueBtn = screen.getByText('+ Crear mi primer Plan Estratégico');
     expect(continueBtn).toBeInTheDocument();
     
     fireEvent.click(continueBtn);
-    expect(mockPush).toHaveBeenCalledWith('/');
-  });
-
-  test('Flujo Fast-Track (1 plan)', async () => {
-    const singlePlan = [{ id: 'plan-1', mission: 'Misión Única' }];
-    api.getTenantPlans.mockResolvedValue(singlePlan);
-    
-    render(<SelectPlanPage />);
-    
-    await waitFor(() => {
-      expect(mockPush).toHaveBeenCalledWith('/');
-    });
-    
-    expect(localStorage.getItem('e365_active_plan_id')).toBe('plan-1');
-    expect(localStorage.getItem('e365_active_plan_name')).toBe('Misión Única');
+    expect(mockPush).toHaveBeenCalledWith('/onboarding');
   });
 
   test('Flujo Estándar (N planes)', async () => {
@@ -133,10 +119,10 @@ describe('SelectPlanPage', () => {
     render(<SelectPlanPage />);
     
     await waitFor(() => {
-      expect(screen.getByText('← Volver a selección de tenant')).toBeInTheDocument();
+      expect(screen.getByText('← Volver a selección de Organización')).toBeInTheDocument();
     });
     
-    fireEvent.click(screen.getByText('← Volver a selección de tenant'));
+    fireEvent.click(screen.getByText('← Volver a selección de Organización'));
     
     expect(mockPush).toHaveBeenCalledWith('/select-tenant');
   });

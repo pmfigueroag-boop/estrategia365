@@ -14,14 +14,6 @@ export default function SelectPlanPage() {
       try {
         const data = await api.getTenantPlans();
         
-        // Fast-track logic: If only 1 plan, auto-select it
-        if (data.length === 1) {
-          localStorage.setItem('e365_active_plan_id', data[0].id);
-          localStorage.setItem('e365_active_plan_name', data[0].mission || `Plan ${data[0].id}`);
-          router.push('/');
-          return;
-        }
-        
         setPlans(data);
       } catch (err) {
         setError('No se pudieron cargar los planes estratégicos. Por favor intenta de nuevo.');
@@ -70,16 +62,18 @@ export default function SelectPlanPage() {
         )}
 
         {plans.length === 0 && !isLoading && !error && (
-          <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-secondary)' }}>
-            No hay planes estratégicos disponibles en este tenant.
-            <div style={{ marginTop: '1rem' }}>
-               <button 
-                  onClick={() => router.push('/')}
-                  className="btn-primary"
-               >
-                 Continuar al Dashboard
-               </button>
-            </div>
+          <div style={{ textAlign: 'center', padding: '2rem', background: 'rgba(255,255,255,0.05)', borderRadius: 12, border: '1px solid var(--surface-border)' }}>
+            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎯</div>
+            <h3 style={{ marginBottom: '0.5rem', color: 'var(--text-primary)' }}>Sin planes estratégicos</h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '2rem' }}>
+              No hay planes estratégicos disponibles en esta organización. Inicia el proceso de Onboarding para formular el primero.
+            </p>
+            <button 
+              onClick={() => router.push('/onboarding')}
+              className="btn btn-primary"
+            >
+              + Crear mi primer Plan Estratégico
+            </button>
           </div>
         )}
 
@@ -130,6 +124,29 @@ export default function SelectPlanPage() {
           ))}
         </div>
         
+        {plans.length > 0 && !isLoading && !error && (
+          <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+            <button 
+              onClick={() => router.push('/onboarding')}
+              style={{ 
+                background: 'transparent', border: '1px dashed var(--surface-border)', 
+                color: 'var(--text-secondary)', padding: '1rem', width: '100%',
+                borderRadius: 12, cursor: 'pointer', transition: 'all 0.2s'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'var(--accent-primary)';
+                e.currentTarget.style.color = 'var(--text-primary)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'var(--surface-border)';
+                e.currentTarget.style.color = 'var(--text-secondary)';
+              }}
+            >
+              + Crear nuevo Plan Estratégico
+            </button>
+          </div>
+        )}
+
         <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
           <button 
             onClick={() => router.push('/select-tenant')}
@@ -138,7 +155,7 @@ export default function SelectPlanPage() {
               cursor: 'pointer', fontSize: '0.9rem', textDecoration: 'underline' 
             }}
           >
-            ← Volver a selección de tenant
+            ← Volver a selección de Organización
           </button>
         </div>
       </div>

@@ -29,7 +29,7 @@ export default function BottomNav() {
   const NAV_ITEMS = [
     { href: '/dashboard', label: 'Command', icon: '📊' },
     { href: '/strategy', label: 'Strategy', icon: '♟️' },
-    { href: '/hoshin', label: 'Hoshin', icon: '🔗' },
+    // { href: '/hoshin', label: 'Hoshin', icon: '🔗' }, // POST-MVP
     { href: '/execution', label: 'Control', icon: '⚡' },
   ];
 

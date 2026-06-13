@@ -35,8 +35,8 @@ describe('SelectTenantPage Unit Tests', () => {
 
     // wait for the UI to update and show empty state
     await waitFor(() => {
-      expect(screen.getByText('Sin acceso')).toBeInTheDocument();
-      expect(screen.getByText(/No tienes ninguna organización asignada/i)).toBeInTheDocument();
+      expect(screen.getByText('Aún no perteneces a ninguna organización')).toBeInTheDocument();
+      expect(screen.getByText(/Para comenzar a utilizar Estrategia 365, necesitas crear tu espacio/i)).toBeInTheDocument();
       expect(screen.getByRole('button', { name: /Volver al inicio/i })).toBeInTheDocument();
     });
   });

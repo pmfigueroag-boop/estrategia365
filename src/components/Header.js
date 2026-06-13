@@ -35,7 +35,7 @@ const NAV_DOMAINS = [
     id: 'despliegue', label: 'Despliegue', icon: '🔗',
     links: [
       { href: '/alignment', label: '6. Alineación', desc: 'McKinsey 7S' },
-      { href: '/hoshin', label: '7. Hoshin Kanri', desc: 'X-Matrix · Cascade' },
+      // { href: '/hoshin', label: '7. Hoshin Kanri', desc: 'X-Matrix · Cascade' }, // POST-MVP
     ],
   },
   {
@@ -50,6 +50,9 @@ const NAV_DOMAINS = [
       { href: '/dashboard', label: '9. Command Center', desc: 'Dashboard Ejecutivo' },
     ],
   },
+  
+  // --- POST-MVP / PAUSADAS ---
+  /*
   {
     id: 'aprendizaje', label: 'Aprendizaje', icon: '🧠',
     links: [
@@ -63,6 +66,7 @@ const NAV_DOMAINS = [
       { href: '/admin', label: '13. Admin Console', desc: 'Usuarios · Tenant · SSO' },
     ],
   },
+  */
 ];
 
 export default function Header() {
